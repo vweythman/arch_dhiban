@@ -1,0 +1,33 @@
+<h1>Sample Log</h1>
+
+<a href="">Unit</a>  
+<a href="">ect</a>
+
+<table>
+	<thead>
+		<tr>
+			<th>Lab LF ID //&#x25BC;//</th>
+			<th>LF ID</th>
+			<th>HF ID</th>
+			<th>Bag</th>
+			<th>Exc</th>
+			<th>Unit</th>
+	</thead>
+	<tbody>
+		<?php $samples = Flots::find(array("limit" => 100)); ?>
+		<?php 
+
+			foreach ($samples as $sample) {
+				$id = $sample->LabFlot;
+				echo "<tr>";
+				echo "<th>".$this->tag->linkTo("sample/show?LabFlot=$id", $id)."</th>";
+				echo "<td>".$sample->Flot."</td>";
+				echo "<td>".$sample->hf_link()."</td>";
+				echo "<td>".$sample->Bag."</td>";
+				echo "<td>".$sample->exc()."</td>";
+				echo "<td>".$sample->Unit.	"</td>";
+				echo "</tr>";
+			}
+			?>
+	</tbody>
+</table>
