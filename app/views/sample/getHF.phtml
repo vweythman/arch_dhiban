@@ -1,18 +1,25 @@
-<h1>HF ID: <?php echo $HFID; ?></h1>
+<?php
+	/*
+	* $HFID and $HFs are defined in the controller
+	*/
 
-<?php 
-	$firstHF  = $HFs[0];
-	$LabFlots = $firstHF->Flots;
+	// variables
+	if (count($HFs) > 0) {	
+		$firstHF  = $HFs[0];
+		$LabFlots = $firstHF->Flots;
+	} else {
+		$LabFlots = Flots::find("HF = $HFID");
+	}
 ?>
+
+<h1>HF ID: <?php echo $HFID; ?></h1>
 
 <h2>LabFlots</h2>
 <ul>
-	<?php foreach ($LabFlots as $LabFlot) { ?>
-
-		<?php $id = $LabFlot->LabFlot; ?>
-		<li><?php echo $this->tag->linkTo("sample/show/$id", $id); ?></li>
-		
-	<?php } ?>
+	<?php foreach ($LabFlots as $LabFlot) { 
+		$id = $LabFlot->LabFlot;
+		echo "<li>".$LabFlot->labFlotLink()."</li>";
+	} ?>
 </ul>
 
 <h2>Data</h2>

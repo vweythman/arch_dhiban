@@ -2,7 +2,6 @@
 // from the phalcon documentation and then modified to fit the project
 
 // SETUP
-error_reporting(E_ALL);
 use Phalcon\Mvc\Application;
 use Phalcon\Config\Adapter\Ini as ConfigIni;
 
@@ -13,7 +12,16 @@ try {
 	$config = new ConfigIni(APP_PATH . 'app/config/config.ini');
 
 	// load up
-	require APP_PATH . 'app/config/loader.php';
+	$loader = new \Phalcon\Loader();
+
+	// register directories
+	$loader->registerDirs(
+		array(
+			APP_PATH . $config->application->controllersDir,
+			APP_PATH . $config->application->modelsDir,
+			APP_PATH . $config->application->libraryDir
+		)
+	)->register();
 	
 	// load services
 	require APP_PATH . 'app/config/services.php';

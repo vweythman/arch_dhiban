@@ -27,10 +27,19 @@ class Flots extends Model
 	}
 
 	/* 
+	*  Lab_Flot_Link
+	*  provides the link to the lab flot id
+	*/
+	public function labFlotLink() {
+		$id = $this->LabFlot;
+		return Phalcon\Tag::linkTo("sample/show/$id", $id);
+	}
+
+	/* 
 	*  HF_Link
 	*  provides the link to the HF when it exists
 	*/
-	public function hf_link() {
+	public function HFLink() {
 		if ($this->HF != null) {
 			return Phalcon\Tag::linkTo("sample/getHF/$this->HF", $this->HF);
 		}
