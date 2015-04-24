@@ -13,12 +13,12 @@ class Peb extends Model
 		return 'raw_peb_idet';
 	}
 
-    public function initialize()
-    {
-    	// add all relationships here
-    	// when table has been broken into smaller tables
-    	// $this->hasOne(IDFIELD, NAME_OF_MODEL, PEBID)
-    }
+	public function initialize()
+	{
+		// add all relationships here
+		// when table has been broken into smaller tables
+		// $this->hasOne(IDFIELD, NAME_OF_MODEL, PEBID)
+	}
 
 	// PROPERTIES
 }

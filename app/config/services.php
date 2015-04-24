@@ -21,8 +21,8 @@ $di->set('dispatcher', function() use ($di) {
 
 // setting up the assets manager
 $di->set('assets', function() {
-     $assets = new AssetsManagerr();
-      return $assets;
+	$assets = new AssetsManagerr();
+	return $assets;
 });
 
 // setting the base url based upon the url in the config file
@@ -45,7 +45,7 @@ $di->set('view', function() use ($config) {
 *  we will be adding more databases eventually
 */
 $di->set('db', function() use ($config) {
-	$dbclass = 'Phalcon\Db\Adapter\Pdo\\' . $config->database->adapter;
+	$dbclass = 'Phalcon\Db\Adapter\Pdo\\Mysql';
 	return new $dbclass(array(
 		"host"     => $config->database->host,
 		"username" => $config->database->username,

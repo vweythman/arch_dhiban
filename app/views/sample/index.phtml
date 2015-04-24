@@ -3,7 +3,7 @@
 <a href="">Unit</a>  
 <a href="">ect</a>
 
-<table class="sortable">
+<table class="sortable tablesorter">
 	<thead>
 		<tr>
 			<th>Lab LF ID</th>
@@ -14,7 +14,7 @@
 			<th>Unit</th>
 	</thead>
 	<tbody>
-		<?php $samples = Flots::find(array("limit" => 100)); ?>
+		<?php $samples = Flots::find(); ?>
 		<?php 
 
 			foreach ($samples as $sample) {
@@ -28,6 +28,6 @@
 				echo "<td>".$sample->Unit.	"</td>";
 				echo "</tr>";
 			}
-			?>
+		?>
 	</tbody>
 </table>

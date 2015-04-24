@@ -1,12 +1,60 @@
 <h1>HF ID: <?php echo $HFID; ?></h1>
 
-<table>
+<?php 
+	$firstHF  = $HFs[0];
+	$LabFlots = $firstHF->Flots;
+?>
+
+<h2>LabFlots</h2>
+<ul>
+	<?php foreach ($LabFlots as $LabFlot) { ?>
+
+		<?php $id = $LabFlot->LabFlot; ?>
+		<li><?php echo $this->tag->linkTo("sample/show/$id", $id); ?></li>
+		
+	<?php } ?>
+</ul>
+
+<h2>Data</h2>
+<table class="sortable tablesorter">
 	<thead>
-		<tr><th>theading</th></tr>
+		<tr>
+			<th>Square</th>
+			<th>Locus</th>
+			<th>SG</th>
+			<th>Volume</th>
+			<th>Field</th>
+			<th>Bagnum</th>
+			<th>Material</th>
+			<th>Type</th>
+			<th>Part</th>
+			<th>Spec</th>
+			<th>Density</th>
+			<th>Count Total</th>
+			<th>Weight Dens</th>
+			<th>Weight Total</th>
 	</thead>
 	<tbody>
-		<tr>
-			<td>//insert here//</td>
-		</tr>
+<?php 
+	foreach ($HFs as $HF) {
+		echo "<tr>";
+		echo "<td>".$HF->Square."</td>";
+		echo "<td>".$HF->Locus."</td>";
+		echo "<td>".$HF->SG."</td>";
+		echo "<td>".$HF->Volume."</td>";
+		echo "<td>".$HF->Field."</td>";
+		echo "<td>".$HF->Bagnum."</td>";
+		echo "<td>".$HF->Material."</td>";
+		echo "<td>".$HF->Type."</td>";
+		echo "<td>".$HF->Part."</td>";
+		echo "<td>".$HF->Spec."</td>";
+		echo "<td>".$HF->Density."</td>";
+		echo "<td>".$HF->CountTotal."</td>";
+		echo "<td>".$HF->WeightDens."</td>";
+		echo "<td>".$HF->WeightTotal."</td>";
+		echo "</tr>";
+	}
+?>
 	</tbody>
 </table>
+

@@ -22,6 +22,9 @@ class SampleController extends Controller
 	public function getHFAction($HFID)
 	{
 		$this->view->setVar("HFID", $HFID);
+		
+		$HFData = HF::find("HF = '$HFID'");
+		$this->view->setVar("HFs", $HFData);
 	}
 
 }

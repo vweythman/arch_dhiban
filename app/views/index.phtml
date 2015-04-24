@@ -2,14 +2,20 @@
 <html>
 <head>
 	<title>Dhiban Data</title>
-	<script src='/arch/public/js/sorttable.js'></script>
+	<script src='/arch/public/js/jquery.min.js'></script>
+	<script src='/arch/public/js/jquery.tablesorter.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="/arch/public/css/style.css">
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$(".sortable").tablesorter(); 
+		});
+	</script>
 </head>
 
 <body>
 
 	<?php echo $this->getContent() ?>
-
 </body>
 </html>

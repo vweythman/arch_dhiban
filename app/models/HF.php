@@ -13,6 +13,12 @@ class HF extends Model
 	{
 		return 'raw_hf_data';
 	}
+	public function initialize()
+	{
+		$this->hasMany('HF', 'Flots', 'HF');
+	}
+
+
 
 	// PROPERTIES
 	public $HF;
