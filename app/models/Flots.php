@@ -36,7 +36,7 @@ class Flots extends Model
 		}
 	}
 
-	// DATA
+	// PROPERTIES
 	public $LabFlot;  // table id
 	public $Flot;
 	public $HF;
