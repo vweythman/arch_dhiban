@@ -1,5 +1,5 @@
 <?php
-// from the phalcon documentation
+// from the phalcon documentation and then modified to fit the project
 
 // SETUP
 error_reporting(E_ALL);

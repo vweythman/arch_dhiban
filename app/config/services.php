@@ -39,7 +39,8 @@ $di->set('view', function() use ($config) {
 	return $view;
 });
 
-/* setting up the current db
+/* 
+*  setting up the current db
 *  REMINDER: this one is for dhiban presently
 *  we will be adding more databases eventually
 */

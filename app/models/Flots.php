@@ -4,22 +4,19 @@ use Phalcon\Mvc\Model;
 
 class Flots extends Model
 {
-
+	/* 
+	*  GET_SOURCE
+	*  defines the table connected to the model
+	*/
 	public function getSource()
 	{
 		return 'flot_log';
 	}
 
-	public $LabFlot; // id for table
-	public $Flot;
-
-	public $row_name;
-
-	public $Bag;
-
-	public $ExcDay;
-	public $ExcYear;
-
+	/* 
+	*  EXC
+	*  combines ExcDay and ExcYear when they exist
+	*/
 	public function exc() {
 		if ($this->ExcDay == null) {
 			return $this->ExcYear;
@@ -29,13 +26,28 @@ class Flots extends Model
 		}
 	}
 
+	/* 
+	*  HF_Link
+	*  provides the link to the HF when it exists
+	*/
 	public function hf_link() {
 		if ($this->HF != null) {
 			return Phalcon\Tag::linkTo("sample/getHF/$this->HF", $this->HF);
 		}
 	}
 
+	// DATA
+	public $LabFlot;  // table id
+	public $Flot;
+	public $HF;
+
+	public $Bag;
 	public $Unit;
+
+	public $ExcDay;
+	public $ExcYear;
+
+	public $row_name;
 
 	public $Locus;
 	public $SG;
@@ -43,11 +55,11 @@ class Flots extends Model
 	public $Vol_L;
 	public $FLD;
 	
-
 	// Location
 	public $x;
 	public $y;
 	public $z;
+	
 	public $spatttype;
 
 	public $C14OP;
@@ -58,14 +70,11 @@ class Flots extends Model
 	public $Period;
 	public $StructNum;
 
-	public $HF;
 	public $HFAnalyzed;
 	
 	public $MDAnalyzed;
 	public $Date;
 
 	public $Notes;
-
-
 
 }
