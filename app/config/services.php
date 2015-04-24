@@ -4,10 +4,8 @@ use Phalcon\Mvc\View;
 use Phalcon\DI\FactoryDefault;
 use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\Url as UrlProvider;
-use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaData;
 use Phalcon\Session\Adapter\Files as SessionAdapter;
-use Phalcon\Flash\Session as FlashSession;
 use Phalcon\Events\Manager as EventsManager;
 /**
  * The FactoryDefault Dependency Injector automatically register the right services providing a full stack framework
@@ -63,19 +61,5 @@ $di->set('session', function() {
 	$session->start();
 	return $session;
 });
-/**
- * Register the flash service with custom CSS classes
- */
-$di->set('flash', function(){
-	return new FlashSession(array(
-		'error'   => 'alert alert-danger',
-		'success' => 'alert alert-success',
-		'notice'  => 'alert alert-info',
-	));
-});
-/**
- * Register a user component
- */
-$di->set('elements', function(){
-	return new Elements();
-});
+
+

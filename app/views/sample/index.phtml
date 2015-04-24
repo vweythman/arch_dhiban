@@ -20,7 +20,7 @@
 			foreach ($samples as $sample) {
 				$id = $sample->LabFlot;
 				echo "<tr>";
-				echo "<th>".$this->tag->linkTo("sample/show?LabFlot=$id", $id)."</th>";
+				echo "<th>".$this->tag->linkTo("sample/show/$id", $id)."</th>";
 				echo "<td>".$sample->Flot."</td>";
 				echo "<td>".$sample->hf_link()."</td>";
 				echo "<td>".$sample->Bag."</td>";

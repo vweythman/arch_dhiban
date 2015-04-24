@@ -12,16 +12,16 @@ class SampleController extends Controller
 	}
 
 	// show one plant sample
-	public function showAction()
+	public function showAction($LabFlot)
 	{
-        $LabFlot = $this->dispatcher->getParam('LabFlot');
         $this->view->setVar("LabFlot", $LabFlot);
+
 	}
 
 	// show one artifact sample
-	public function getHFAction()
+	public function getHFAction($HFID)
 	{
-
+        $this->view->setVar("HFID", $HFID);
 	}
 
 }

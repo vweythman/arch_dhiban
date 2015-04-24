@@ -31,7 +31,7 @@ class Flots extends Model
 
 	public function hf_link() {
 		if ($this->HF != null) {
-			return "<a href='sample/getHF?HF=".$this->HF."'>".$this->HF."</a>";
+			return Phalcon\Tag::linkTo("sample/getHF/$this->HF", $this->HF);
 		}
 	}
 
