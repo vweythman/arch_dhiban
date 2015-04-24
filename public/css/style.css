@@ -1,0 +1,22 @@
+table {
+	border-collapse: collapse;
+}
+thead th {
+	padding: 10px;
+	background: hsl(0, 0%, 90%);
+}
+td {
+	padding: 5px 10px;
+}
+
+tr:nth-child(even) {
+	background: hsl(0, 0%, 95%);
+}
+
+.sortable .headerSortUp:after {
+	content: "\25b4";
+}
+
+.sortable .headerSortDown:after {
+	content: "\25be";
+}
