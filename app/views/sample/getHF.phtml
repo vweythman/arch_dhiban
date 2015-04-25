@@ -2,14 +2,6 @@
 	/*
 	* $HFID and $HFs are defined in the controller
 	*/
-
-	// variables
-	if (count($HFs) > 0) {	
-		$firstHF  = $HFs[0];
-		$LabFlots = $firstHF->Flots;
-	} else {
-		$LabFlots = Flots::find("HF = $HFID");
-	}
 ?>
 
 <h1>HF ID: <?php echo $HFID; ?></h1>
