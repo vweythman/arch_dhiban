@@ -32,10 +32,12 @@
 			<th>Count Total</th>
 			<th>Weight Dens</th>
 			<th>Weight Total</th>
+			<th>CT25</th>
 	</thead>
 	<tbody>
 <?php 
 	foreach ($HFs as $HF) {
+		$vars = get_object_vars($HF);
 		echo "<tr>";
 		echo "<td>".$HF->Square."</td>";
 		echo "<td>".$HF->Locus."</td>";
@@ -51,9 +53,11 @@
 		echo "<td>".$HF->CountTotal."</td>";
 		echo "<td>".$HF->WeightDens."</td>";
 		echo "<td>".$HF->WeightTotal."</td>";
+		echo "<td>".$HF->C25."</td>";
 		echo "</tr>";
 	}
 ?>
+
 	</tbody>
 </table>
 
