@@ -10,7 +10,7 @@ class SampleController extends Controller
 	{
 		$samples = Flots::find();
 		$this->view->setVar("samples", $samples);
-		$this->view->setVar("site","Dhiban"); // currently hardcoded
+		$this->view->setVar("site", "Dhiban"); // currently hardcoded
 	}
 
 	// show one plant sample
