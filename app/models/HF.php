@@ -71,7 +71,7 @@ class HF extends Model
 	public $WT_8;
 	
 	public $CT_4;
-	public $CT_4;
+	public $WT_4;
 
 
 	// rest of table uses . in name
