@@ -20,6 +20,7 @@ class HF extends Model
 	*/
 	public function initialize()
 	{
+		// $internalID, $assocModelName, $idFromAssocModel
 		$this->hasMany('HF', 'Flots', 'HF');
 	}
 
@@ -73,6 +74,4 @@ class HF extends Model
 	public $CT_4;
 	public $WT_4;
 
-
-	// rest of table uses . in name
 }
