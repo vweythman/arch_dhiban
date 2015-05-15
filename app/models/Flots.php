@@ -14,16 +14,22 @@ class Flots extends Model
 	}
 
 	/* 
-	*  EXC
-	*  combines ExcDay and ExcYear when they exist
+	*  INITIALIZE
+	*  defines model relationships and other important variables
 	*/
-	public function exc() {
-		if ($this->ExcDay == null) {
-			return $this->ExcYear;
-		}
-		else {
-			return $this->ExcDay."/".$this->ExcYear;
-		}
+	public function initialize()
+	{
+		// $internalID, $assocModelName, $idFromAssocModel
+		$this->hasOne('HF', 'HF', 'HF');
+	}
+
+	/* 
+	* AFTER_FETCH
+	* setups any variables after the database variables have been found
+	*/
+	public function afterFetch()
+	{
+		$this->Exc = ($this->ExcDay == null) ? $this->ExcYear : $this->ExcDay."/".$this->ExcYear;
 	}
 
 	/* 
@@ -41,7 +47,7 @@ class Flots extends Model
 	*/
 	public function HFLink() {
 		if ($this->HF != null) {
-			return Phalcon\Tag::linkTo("sample/getHF/$this->HF", $this->HF);
+			return Phalcon\Tag::linkTo("HF/show/$this->HF", $this->HF);
 		}
 	}
 

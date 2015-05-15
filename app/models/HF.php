@@ -16,7 +16,7 @@ class HF extends Model
 
 	/* 
 	*  INITIALIZE
-	*  defines model relationships
+	*  defines model relationships and other important variables
 	*/
 	public function initialize()
 	{
@@ -30,18 +30,7 @@ class HF extends Model
 	*/
 	public function afterFetch()
 	{
-		$vars = get_object_vars($this);
-		$this->CT_25 = $vars['CT.25'];
-		$this->WT_25 = $vars['WT.25'];
 
-		$this->CT_12_5 = $vars['CT.12.5'];
-		$this->WT_12_5 = $vars['WT.12.5'];
-
-		$this->CT_8 = $vars['CT.8'];
-		$this->WT_8 = $vars['WT.8'];
-
-		$this->CT_4 = $vars['CT.4'];
-		$this->WT_4 = $vars['WT.4'];
 	}
 
 	// PROPERTIES

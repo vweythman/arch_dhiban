@@ -5,6 +5,8 @@
 use Phalcon\Mvc\Application;
 use Phalcon\Config\Adapter\Ini as ConfigIni;
 
+include '../app/library/helper.php';
+
 try {
 
 	// Define config

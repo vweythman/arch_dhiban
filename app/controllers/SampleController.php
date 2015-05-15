@@ -4,7 +4,6 @@ use Phalcon\Mvc\Controller;
 
 class SampleController extends Controller
 {
-
 	// show all
 	public function indexAction()
 	{
@@ -16,24 +15,12 @@ class SampleController extends Controller
 	// show one plant sample
 	public function showAction($LabFlot)
 	{
+		$PebData = Peb::find("FlotNum = '$LabFlot'");
+		$FlotData = Flots::find("LabFlot = '$LabFlot'");
 		$this->view->setVar("LabFlot", $LabFlot);
+		$this->view->setVar("PebData", $PebData);
+		$this->view->setVar("FlotData", $FlotData);
+		$this->view->setVar("DomesticatesTotals", array(0, 0));
+
 	}
-
-	// show one artifact sample
-	public function getHFAction($HFID)
-	{
-		$HFData = HF::find("HF = '$HFID'");
-
-		if (count($HFData) > 0) {	
-			$firstHF  = $HFData[0];
-			$LabFlots = $firstHF->Flots;
-		} else {
-			$LabFlots = Flots::find("HF = $HFID");
-		}
-		
-		$this->view->setVar("HFID", $HFID);
-		$this->view->setVar("HFs", $HFData);
-		$this->view->setVar("LabFlots", $LabFlots);
-	}
-
 }

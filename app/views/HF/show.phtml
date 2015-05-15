@@ -1,0 +1,112 @@
+<?php
+	/*
+	* $HFID and $HFs are defined in the controller
+	*/
+?>
+
+<h1>HF ID: <?php echo $HFID; ?></h1>
+
+<h2>LabFlots</h2>
+<ul>
+	<?php foreach ($LabFlots as $LabFlot) { 
+		$id = $LabFlot->LabFlot;
+		echo "<li>".$LabFlot->labFlotLink()."</li>";
+	} ?>
+</ul>
+
+<h2>Data</h2>
+<table class="sortable tablesorter">
+	<thead>
+		<tr>
+			<th>Square</th>
+			<th>Locus</th>
+			<th>SG</th>
+			<th>Volume</th>
+			<th>Field</th>
+			<th>Bagnum</th>
+			<th>Material</th>
+			<th>Type</th>
+			<th>Part</th>
+			<th>Spec</th>
+			<th>Density</th>
+			<th>Count Total</th>
+			<th>Weight Dens</th>
+			<th>Weight Total</th>
+			<th>CT.25</th>
+			<th>WT.25</th>
+			<th>CT.12.5</th>
+			<th>WT.12.5</th>
+			<th>CT.8</th>
+			<th>WT.8</th>
+			<th>CT.4</th>
+			<th>WT.4</th>
+	</thead>
+	<tbody>
+<?php 
+	foreach ($HFs as $HF) {
+		$vars = get_object_vars($HF);
+		echo "<tr>";
+		echo "<td>".$HF->Square."</td>";
+		echo "<td>".$HF->Locus."</td>";
+		echo "<td>".$HF->SG."</td>";
+		echo "<td>".$HF->Volume."</td>";
+		echo "<td>".$HF->Field."</td>";
+		echo "<td>".$HF->Bagnum."</td>";
+		echo "<td>".$HF->Material."</td>";
+		echo "<td>".$HF->Type."</td>";
+		echo "<td>".$HF->Part."</td>";
+		echo "<td>".$HF->Spec."</td>";
+		echo "<td>".$HF->Density."</td>";
+		echo "<td>".$HF->CountTotal."</td>";
+		echo "<td>".$HF->WeightDens."</td>";
+		echo "<td>".$HF->WeightTotal."</td>";
+		echo "<td>".$HF->CT_25."</td>";
+		echo "<td>".$HF->WT_25."</td>";
+		echo "<td>".$HF->CT_12_5."</td>";
+		echo "<td>".$HF->WT_12_5."</td>";
+		echo "<td>".$HF->CT_8."</td>";
+		echo "<td>".$HF->WT_8."</td>";
+		echo "<td>".$HF->CT_4."</td>";
+		echo "<td>".$HF->WT_4."</td>";
+		echo "</tr>";
+	}
+?>
+
+	</tbody>
+	<tfoot>
+		<tr><th colspan="23">Add Another</th></tr>
+		<tr><?php echo $this->tag->form('HF/save/'); ?>
+			<?php echo $this->tag->hiddenField(array("HF", "value" => $HFID)); ?>
+			<td><?php echo $this->tag->textField("Square"); ?></td>
+			<td><?php echo $this->tag->textField("Locus"); ?></td>
+			<td><?php echo $this->tag->textField("SG"); ?></td>
+			<td><?php echo $this->tag->textField("Volume"); ?></td>
+			<td><?php echo $this->tag->textField("Field"); ?></td>
+			<td><?php echo $this->tag->textField("Bagnum"); ?></td>
+			<td><?php echo $this->tag->textField("Material"); ?></td>
+			<td><?php echo $this->tag->textField("Type"); ?></td>
+			<td><?php echo $this->tag->textField("Part"); ?></td>
+			<td><?php echo $this->tag->textField("Spec"); ?></td>
+			<td><?php echo $this->tag->textField("Density"); ?></td>
+			<td><?php echo $this->tag->textField("CountTotal"); ?></td>
+			<td><?php echo $this->tag->textField("WeightDens"); ?></td>
+			<td><?php echo $this->tag->textField("WeightTotal"); ?></td>
+			<td><?php echo $this->tag->textField("CT_25"); ?></td>
+			<td><?php echo $this->tag->textField("WT_25"); ?></td>
+			<td><?php echo $this->tag->textField("CT_12_5"); ?></td>
+			<td><?php echo $this->tag->textField("WT_12_5"); ?></td>
+			<td><?php echo $this->tag->textField("CT_8"); ?></td>
+			<td><?php echo $this->tag->textField("WT_8"); ?></td>
+			<td><?php echo $this->tag->textField("CT_4"); ?></td>
+			<td><?php echo $this->tag->textField("WT_4"); ?></td>
+			<td><?php echo $this->tag->submitButton("Add"); ?></td>
+
+		<?php echo $this->tag->endForm(); ?></tr>
+	</tfoot>
+
+
+</table>
+
+<footer>
+	<?php echo Phalcon\Tag::linkTo("sample", "Sample Log"); ?>
+</footer>

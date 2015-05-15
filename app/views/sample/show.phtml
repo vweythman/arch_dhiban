@@ -1,25 +1,198 @@
 <h1>Lab LF ID: <?php echo $LabFlot; ?></h1>
 
+<table>
+	<thead>
+		<tr>
+			<th>LF ID</th>
+			<th>HF ID</th>
+			<th>Locus</th>
+			<th>Bag</th>
+			<th>Exc</th>
+			<th>Unit</th>
+	</thead>
+	<tbody>
+		<?php 
+			foreach ($FlotData as $flot) {
+				echo "<tr>";
+				echo "<td>".$flot->Flot."</td>";
+				echo "<td>".$flot->HFLink()."</td>";
+				echo "<td>".$flot->Locus."</td>";
+				echo "<td>".$flot->Bag."</td>";
+				echo "<td>".$flot->Exc."</td>";
+				echo "<td>".$flot->Unit."</td>";
+				echo "</tr>";
+			}
+		?>
+	</tbody>
+</table>
+
 <div id='tabs'>
 	<ul>
-		<li><a href="#tab1">Tab1</a></li>
-		<li><a href="#tab2">Tab2</a></li>
-		<li><a href="#tab3">Tab3</a></li>
+		<li><a href="#tab1">Domesticates</a></li>
+		<li><a href="#tab2">Families</a></li>
+		<li><a href="#tab3">Weeds and Wild</a></li>
+		<li><a href="#tab4">Unks &amp; Frags</a></li>
+		<li><a href="#tab5">Rachis Remains</a></li>
+		<li><a href="#tab6">Other Remains</a></li>
 	</ul>
 
-
 	<div id="tab1" class='tab'>
-		<h2>//Data 1 in Tab//</h2>
+		<h2>Domesticates</h2>
+		<p>linked to wikipedia</p>
+		<table>
+			<thead>
+			<tr>
+				<th>Mesh</th>
+				<th><?php echo wikiThis("Cicer arietinum"); ?></th>
+				<th><?php echo wikiThis("Coriandrum sativum"); ?></th>
+				<th><?php echo wikiThis("Ficus carica"); ?></th>
+			</tr>
+			</thead>
+			
+			<?php foreach ($PebData as $dataPoint) {
+				echo "<tr>";
+				echo "<td>".$dataPoint->Mesh."</td>";
+				echo "<td>".$dataPoint->Cicer_arietinum."</td>";
+				echo "<td>".$dataPoint->Coriandrum_sativum."</td>";
+				echo "</tr>";
+			} ?>
+			<tfoot>
+				<tr>
+					<th>Totals</th>
+					<td><?php echo $dataPoint::$sumCicer_Arietinum; ?></td>
+					<td><?php echo $dataPoint::$sumCoriandrum_Sativum; ?></td>
+				</tr>
+			</tfoot>
+		</table>
 
+		<h2>Domesicate Weights</h2>
+		<table>
+			<thead>
+			<tr>
+				<th>Mesh</th>
+				<th>Olea sp shell frag wt</th>
+				<th>Pisum sativum wt</th>
+				<th>Olea sp wt</th>
+			</tr>
+			</thead>
+			
+			<?php foreach ($PebData as $dataPoint) {
+				echo "<tr>";
+				echo "<td>".$dataPoint->Mesh."</td>";
+				echo "<td>".$dataPoint->Olea_sp_shell_frag_wt."</td>";
+				echo "<td>".$dataPoint->Pisum_sativum_wt."</td>";
+				echo "<td>".$dataPoint->Olea_sp_wt."</td>";
+				echo "</tr>";
+			} ?>
+			<tfoot>
+				<tr>
+					<th>Totals</th>
+					<td><?php echo $dataPoint::$sumOlea_sp_shell_frag_wt; ?></td>
+					<td><?php echo $dataPoint::$sumPisum_sativum_wt; ?></td>
+					<td><?php echo $dataPoint::$sumOlea_sp_wt; ?></td>
+				</tr>
+			</tfoot>
+		</table>
+		<h2>Other Domesicate Parts</h2>
+		<h2>Domesicate Fragments</h2>
 	</div>
 	
 	<div id="tab2" class='tab'>
-		<h2>//Data 2 in Tab//</h2>
-
+		<h2>Families</h2>
+		<p>linked to wikipedia</p>
+		<table>
+			<thead>
+				<tr>
+					<th>Mesh</th>
+					<th><?php echo wikiThis("Amaranthaceae"); ?></th>
+					<th><?php echo wikiThis("Apiaceae"); ?></th>
+					<th><?php echo wikiThis("Asteraceae"); ?></th>
+				</tr>
+			</thead>
+			<?php foreach ($PebData as $dataPoint) {
+				echo "<tr>";
+				echo "<td>".$dataPoint->Mesh."</td>";
+				echo "<td>".$dataPoint->Amaranthaceae."</td>";
+				echo "<td>".$dataPoint->Apiaceae."</td>";
+				echo "<td>".$dataPoint->Asteraceae."</td>";
+				echo "</tr>";
+			} ?>
+			<tfoot>
+				<tr>
+					<th>Totals</th>
+					<td><?php echo $dataPoint::$sumAmaranthaceae; ?></td>
+					<td><?php echo $dataPoint::$sumApiaceae; ?></td>
+					<td><?php echo $dataPoint::$sumAsteraceae; ?></td>
+				</tr>
+			</tfoot>
+		</table>
 	</div>
 
 	<div id="tab3" class='tab'>
-		<h2>//Data 3 in Tab//</h2>
+		<h2>Weeds and Wild</h2>
+		<p>linked to wikipedia</p>
+	</div>
 
+	<div id="tab4" class='tab'>
+		<h2>Unks &amp; Frags</h2>
+		<p>linked to wikipedia</p>
+	</div>
+
+	<div id="tab5" class='tab'>
+		<h2>Rachis Remains</h2>
+		<p>linked to wikipedia</p>
+	</div>
+
+	<div id="tab6" class='tab'>
+		<h2>Other Remains</h2>
+		<table>
+			<thead>
+			<tr>
+				<th>Mesh</th>
+				<th>Bone</th>
+				<th>Carbonized Insect</th>
+				<th>Dung</th>
+				<th>Eggshell</th>
+				<th>Fish Shell</th>
+				<th>Fish Vertebra</th>
+				<th>Insect Pupae</th>
+				<th>Shell</th>
+				<th>Burnt Shell</th>
+			</tr>
+			</thead>
+			
+			<?php foreach ($PebData as $dataPoint) {
+				echo "<tr>";
+				echo "<td>".$dataPoint->Mesh."</td>";
+				echo "<td>".$dataPoint->Bone."</td>";
+				echo "<td>".$dataPoint->Carbonized_insect."</td>";
+				echo "<td>".$dataPoint->Dung."</td>";
+				echo "<td>".$dataPoint->Eggshell."</td>";
+				echo "<td>".$dataPoint->Fish_Scale."</td>";
+				echo "<td>".$dataPoint->Fish_Vertebra."</td>";
+				echo "<td>".$dataPoint->Insect_Pupae."</td>";
+				echo "<td>".$dataPoint->Shell."</td>";
+				echo "<td>".$dataPoint->Shell_Burnt."</td>";
+				echo "</tr>";
+			} ?>
+			<tfoot>
+				<tr>
+					<th>Totals</th>
+					<td><?php echo $dataPoint::$sumBone; ?></td>
+					<td><?php echo $dataPoint::$sumCarbonized_insect; ?></td>
+					<td><?php echo $dataPoint::$sumDung; ?></td>
+					<td><?php echo $dataPoint::$sumEggshell; ?></td>
+					<td><?php echo $dataPoint::$sumFish_Scale; ?></td>
+					<td><?php echo $dataPoint::$sumFish_Vertebra; ?></td>
+					<td><?php echo $dataPoint::$sumInsect_Pupae; ?></td>
+					<td><?php echo $dataPoint::$sumShell; ?></td>
+					<td><?php echo $dataPoint::$sumShell_Burnt; ?></td>
+				</tr>
+			</tfoot>
+		</table>
 	</div>
 </div>
+
+<footer>
+	<?php echo Phalcon\Tag::linkTo("sample", "Sample Log"); ?>
+</footer>

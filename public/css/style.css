@@ -1,3 +1,6 @@
+body {
+	font: 14px Arial;
+}
 table {
 	border-collapse: collapse;
 }
@@ -19,4 +22,31 @@ tr:nth-child(even) {
 
 .sortable .headerSortDown:after {
 	content: "\25be";
+}
+
+.ui-tabs-nav {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	background: #ccc;
+	overflow: auto;
+}
+.ui-corner-top {
+	float: left;
+	display: block;
+	padding: 10px;
+	background:  #222;
+	border: 1px solid #eee;
+}
+.ui-tabs-anchor {
+	color: #FFF;
+	text-decoration: none;
+}
+.tab {
+	background: #eee;
+	padding: 10px;
+}
+.ui-tabs-active { 
+	font-weight: bolder;
+	background: blue;
 }
