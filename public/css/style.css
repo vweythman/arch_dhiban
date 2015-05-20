@@ -45,6 +45,7 @@ tr:nth-child(even) {
 .tab {
 	background: #eee;
 	padding: 10px;
+	overflow: auto;
 }
 .ui-tabs-active { 
 	font-weight: bolder;
