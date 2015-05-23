@@ -13,14 +13,33 @@ class SampleController extends Controller
 	}
 
 	// show one plant sample
-	public function showAction($LabFlot)
+	public function showAction($LabLF)
 	{
-		$PebData = Peb::find("FlotNum = '$LabFlot'");
-		$FlotData = Flots::find("LabFlot = '$LabFlot'");
-		$this->view->setVar("LabFlot", $LabFlot);
-		$this->view->setVar("PebData", $PebData);
+		$FlotData = Flots::find("LabLF = '$LabLF'");
+		$this->view->setVar("LabLF", $LabLF);
 		$this->view->setVar("FlotData", $FlotData);
-		$this->view->setVar("DomesticatesTotals", array(0, 0));
+
+		if (count($FlotData) > 0)
+		{
+			$Doms       = $FlotData[0]->Domesticates;
+			$DomFrags   = $FlotData[0]->DomesticateFrags;
+			$Fams       = $FlotData[0]->FamiliesRemains;
+			$WeedsWilds = $FlotData[0]->WeedsWilds;
+			$Unknowns   = $FlotData[0]->Unknowns;
+			$Rachis     = $FlotData[0]->RachisRemains;
+			$Others     = $FlotData[0]->OtherRemains;
+		}
+		else {
+			$Doms = $DomFrags = $Fams = $WeedsWilds = $Unknowns = $Rachis = $Others = array();
+		}
+
+		$this->view->setVar("Doms", $Doms);
+		$this->view->setVar("DomFrags", $DomFrags);
+		$this->view->setVar("Fams", $Fams);
+		$this->view->setVar("WeedsWilds", $WeedsWilds);
+		$this->view->setVar("Unknowns", $Unknowns);
+		$this->view->setVar("Rachis", $Rachis);
+		$this->view->setVar("Others", $Others);
 
 	}
 }

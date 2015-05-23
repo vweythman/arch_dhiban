@@ -5,23 +5,37 @@ use Phalcon\Mvc\Model;
 // Artifact Sample
 class RachisRemains extends Model {
 
-	public function afterFetch() {
-		self::$sumPoaceae_culm                             += $this->Poaceae_culm;
-		self::$sumPoaceae_root                             += $this->Poaceae_root;
-		self::$sumHordeum_internode                        += $this->Hordeum_internode;
-		self::$sumHordeum_rachis                           += $this->Hordeum_rachis;
-		self::$sumTriticum_aestivum_rachis                 += $this->Triticum_aestivum_rachis;
-		self::$sumTriticum_aestivum_durum_rachis           += $this->Triticum_aestivum_durum_rachis;
-		self::$sumTriticum_aestivum_durum_rachis_internode += $this->Triticum_aestivum_durum_rachis_internode;
-		self::$sumTriticum_aestivum_durum_rachis_node      += $this->Triticum_aestivum_durum_rachis_node;
-		self::$sumTriticum_durum_rachis                    += $this->Triticum_durum_rachis;
-		self::$sumTriticum_mono_di_rachis                  += $this->Triticum_mono_di_rachis;
-		self::$sumTriticum_glume                           += $this->Triticum_glume;
-		self::$sumTriticum_internode                       += $this->Triticum_internode;
-		self::$sumTriticum_node                            += $this->Triticum_node;
-		self::$sumTriticum_rachis                          += $this->Triticum_rachis;
-		self::$sumWild_or_Weed_rachis                      += $this->Wild_or_Weed_rachis;
+	/* 
+	*  GET_SOURCE
+	*  defines the table connected to the model
+	*/
+	public function getSource()
+	{
+		return 'raw_peb_rach';
 	}
+
+	public function afterFetch() {
+		self::$sumMesh += $this->Mesh;
+		if (self::$sumMesh < 3.6) {
+			self::$sumPoaceae_culm                             += $this->Poaceae_culm;
+			self::$sumPoaceae_root                             += $this->Poaceae_root;
+			self::$sumHordeum_internode                        += $this->Hordeum_internode;
+			self::$sumHordeum_rachis                           += $this->Hordeum_rachis;
+			self::$sumTriticum_aestivum_rachis                 += $this->Triticum_aestivum_rachis;
+			self::$sumTriticum_aestivum_durum_rachis           += $this->Triticum_aestivum_durum_rachis;
+			self::$sumTriticum_aestivum_durum_rachis_internode += $this->Triticum_aestivum_durum_rachis_internode;
+			self::$sumTriticum_aestivum_durum_rachis_node      += $this->Triticum_aestivum_durum_rachis_node;
+			self::$sumTriticum_durum_rachis                    += $this->Triticum_durum_rachis;
+			self::$sumTriticum_mono_di_rachis                  += $this->Triticum_mono_di_rachis;
+			self::$sumTriticum_glume                           += $this->Triticum_glume;
+			self::$sumTriticum_internode                       += $this->Triticum_internode;
+			self::$sumTriticum_node                            += $this->Triticum_node;
+			self::$sumTriticum_rachis                          += $this->Triticum_rachis;
+			self::$sumWild_or_Weed_rachis                      += $this->Wild_or_Weed_rachis;
+		}
+	}
+
+	public $Mesh;
 
 	public $Poaceae_culm;
 	public $Poaceae_root;
@@ -40,6 +54,7 @@ class RachisRemains extends Model {
 	public $Wild_or_Weed_rachis;
 
 	// SUMS
+	public static $sumMesh = 0.0;
 	public static $sumPoaceae_culm                             = 0;
 	public static $sumPoaceae_root                             = 0;
 	public static $sumHordeum_internode                        = 0;

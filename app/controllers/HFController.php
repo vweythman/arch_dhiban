@@ -18,14 +18,14 @@ class HFController extends Controller
 
 		if (count($HFData) > 0) {	
 			$firstHF  = $HFData[0];
-			$LabFlots = $firstHF->Flots;
+			$LabLFs = $firstHF->Flots;
 		} else {
-			$LabFlots = Flots::find("HF = $HFID");
+			$LabLFs = Flots::find("HF = $HFID");
 		}
 		
 		$this->view->setVar("HFID", $HFID);
 		$this->view->setVar("HFs", $HFData);
-		$this->view->setVar("LabFlots", $LabFlots);
+		$this->view->setVar("LabLFs", $LabLFs);
 	}
 
 	// POST

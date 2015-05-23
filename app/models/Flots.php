@@ -21,6 +21,13 @@ class Flots extends Model
 	{
 		// $internalID, $assocModelName, $idFromAssocModel
 		$this->hasOne('HF', 'HF', 'HF');
+		$this->hasMany("LabLF", "Domesticates", "LabLF");
+		$this->hasMany("LabLF", "DomesticateFrags", "LabLF");
+		$this->hasMany("LabLF", "FamiliesRemains", "LabLF");
+		$this->hasMany("LabLF", "OtherRemains", "LabLF");
+		$this->hasMany("LabLF", "RachisRemains", "LabLF");
+		$this->hasMany("LabLF", "Unknowns", "LabLF");
+		$this->hasMany("LabLF", "WeedsWilds", "LabLF");
 	}
 
 	/* 
@@ -37,7 +44,7 @@ class Flots extends Model
 	*  provides the link to the lab flot id
 	*/
 	public function labFlotLink() {
-		$id = $this->LabFlot;
+		$id = $this->LabLF;
 		return Phalcon\Tag::linkTo("sample/show/$id", $id);
 	}
 
@@ -52,8 +59,8 @@ class Flots extends Model
 	}
 
 	// PROPERTIES
-	public $LabFlot;  // table id
-	public $Flot;
+	public $LabLF;  // table id
+	public $LF;
 	public $HF;
 
 	public $Bag;

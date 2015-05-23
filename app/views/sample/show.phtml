@@ -1,4 +1,4 @@
-<h1>Lab LF ID: <?php echo $LabFlot; ?></h1>
+<h1>Lab LF ID: <?php echo $LabLF; ?></h1>
 
 <table>
 	<thead>
@@ -14,7 +14,7 @@
 		<?php 
 			foreach ($FlotData as $flot) {
 				echo "<tr>";
-				echo "<td>".$flot->Flot."</td>";
+				echo "<td>".$flot->LabLF."</td>";
 				echo "<td>".$flot->HFLink()."</td>";
 				echo "<td>".$flot->Locus."</td>";
 				echo "<td>".$flot->Bag."</td>";
@@ -38,35 +38,35 @@
 
 	<div id="tab1" class='tab'>
 		<h2>Domesticates</h2>
+
 		<p>linked to wikipedia</p>
 		<table>
-			<?php echo meshTableHeader($PebData); ?>
-			<?php echo allMesh($PebData, "Cicer_arietinum"); ?>
-			<?php echo allMesh($PebData, "Coriandrum_sativum"); ?>
-			<?php echo allMesh($PebData, "Ficus_carica"); ?>
-			<?php echo allMesh($PebData, "Hordeum_distichon"); ?>
-			<?php echo allMesh($PebData, "Hordeum_sp"); ?>
-			<?php echo allMesh($PebData, "Hordeum_vulgare"); ?>
-			<?php echo allMesh($PebData, "Indeterminate_Cereal"); ?>
-			<?php echo allMesh($PebData, "Lathyrus_sativa"); ?>
-			<?php echo allMesh($PebData, "Lens_culinaris"); ?>
-			<?php echo allMesh($PebData, "Olea_sp"); ?>
-			<?php echo allMesh($PebData, "Olea_sp_shell_frag"); ?>
-			<?php echo allMesh($PebData, "Pisum_sativum_ct"); ?>
-			<?php echo allMesh($PebData, "Prunus_sp_cf_cerasifera"); ?>
-			<?php echo allMesh($PebData, "Punica_granatum"); ?>
-			<?php echo allMesh($PebData, "Secale_cereale"); ?>
-			<?php echo allMesh($PebData, "Sorghum_cf_bicolor"); ?>
-			<?php echo allMesh($PebData, "Triticum_aestivum_durum"); ?>
-			<?php echo allMesh($PebData, "Triticum_dicoccum"); ?>
-			<?php echo allMesh($PebData, "Triticum_monococcum"); ?>
-			<?php echo allMesh($PebData, "Triticum_mono_di"); ?>
-			<?php echo allMesh($PebData, "Triticum_sp"); ?>
-			<?php echo allMesh($PebData, "Triticum_spelta"); ?>
-			<?php echo allMesh($PebData, "Vicia_ervilia"); ?>
-			<?php echo allMesh($PebData, "Vicia_faba"); ?>
-			<?php echo allMesh($PebData, "Vicia_sp"); ?>
-			<?php echo allMesh($PebData, "Vitis_vinifera"); ?>
+			<?php echo meshTableHeader($Doms); ?>
+			<?php echo allMesh($Doms, "Cicer_arietinum"); ?>
+			<?php echo allMesh($Doms, "Coriandrum_sativum"); ?>
+			<?php echo allMesh($Doms, "Ficus_carica"); ?>
+			<?php echo allMesh($Doms, "Hordeum_distichon"); ?>
+			<?php echo allMesh($Doms, "Hordeum_sp"); ?>
+			<?php echo allMesh($Doms, "Hordeum_vulgare"); ?>
+			<?php echo allMesh($Doms, "Indeterminate_Cereal"); ?>
+			<?php echo allMesh($Doms, "Lathyrus_sativa"); ?>
+			<?php echo allMesh($Doms, "Lens_culinaris"); ?>
+			<?php echo allMesh($Doms, "Olea_sp"); ?>
+			<?php echo allMesh($Doms, "Pisum_sativum_ct"); ?>
+			<?php echo allMesh($Doms, "Prunus_sp_cf_cerasifera"); ?>
+			<?php echo allMesh($Doms, "Punica_granatum"); ?>
+			<?php echo allMesh($Doms, "Secale_cereale"); ?>
+			<?php echo allMesh($Doms, "Sorghum_cf_bicolor"); ?>
+			<?php echo allMesh($Doms, "Triticum_aestivum_durum"); ?>
+			<?php echo allMesh($Doms, "Triticum_dicoccum"); ?>
+			<?php echo allMesh($Doms, "Triticum_monococcum"); ?>
+			<?php echo allMesh($Doms, "Triticum_mono_di"); ?>
+			<?php echo allMesh($Doms, "Triticum_sp"); ?>
+			<?php echo allMesh($Doms, "Triticum_spelta"); ?>
+			<?php echo allMesh($Doms, "Vicia_ervilia"); ?>
+			<?php echo allMesh($Doms, "Vicia_faba"); ?>
+			<?php echo allMesh($Doms, "Vicia_sp"); ?>
+			<?php echo allMesh($Doms, "Vitis_vinifera"); ?>
 
 			<tfoot>
 				<th></th>
@@ -78,10 +78,10 @@
 
 		<h2>Domesicate Weights</h2>
 		<table>
-			<?php echo meshTableHeader($PebData); ?>
-			<?php echo allMesh($PebData, "Olea_sp_shell_frag_wt"); ?>
-			<?php echo allMesh($PebData, "Pisum_sativum_wt"); ?>
-			<?php echo allMesh($PebData, "Olea_sp_wt"); ?>
+			<?php echo meshTableHeader($Doms); ?>
+			<?php echo allMesh($Doms, "Olea_sp_shell_frag_wt"); ?>
+			<?php echo allMesh($Doms, "Pisum_sativum_wt"); ?>
+			<?php echo allMesh($Doms, "Olea_sp_wt"); ?>
 			<tfoot>
 				<th></th>
 				<td colspan="3"><a href="">// Edit //</a></td>
@@ -91,147 +91,150 @@
 
 		<h2>Other Domesicate Parts</h2>
 		<table>
-			<?php echo meshTableHeader($PebData); ?>
-			<?php echo allMesh($PebData, "Vitis_sp_pedicel"); ?>
-			<?php echo allMesh($PebData, "Vitis_vinifera_endocarp"); ?>
-			<?php echo allMesh($PebData, "Vitis_vinifera_endocarp_wt"); ?>
+			<?php echo meshTableHeader($Doms); ?>
+			<?php echo allMesh($Doms, "Vitis_sp_pedicel"); ?>
+			<?php echo allMesh($Doms, "Vitis_vinifera_endocarp"); ?>
+			<?php echo allMesh($Doms, "Vitis_vinifera_endocarp_wt"); ?>
 		</table>
 
 		<h2>Domesicate Fragments</h2>
 		<table>
-			<?php echo meshTableHeader($PebData); ?>
-			<?php echo allMesh($PebData, "Cereal_frag_CT"); ?>
-			<?php echo allMesh($PebData, "Fabaceae_frags"); ?>
-			<?php echo allMesh($PebData, "Hordeum_frags"); ?>
-			<?php echo allMesh($PebData, "Nutshell_frag"); ?>
-			<?php echo allMesh($PebData, "Pisum_sativum_frags"); ?>
-			<?php echo allMesh($PebData, "Pisum_sativum_frags_wt"); ?>
-			<?php echo allMesh($PebData, "Pisum_sativum_halves"); ?>
-			<?php echo allMesh($PebData, "Pisum_sativum_halves_wt"); ?>
-			<?php echo allMesh($PebData, "Pisum_sativum_whole_distort"); ?>
-			<?php echo allMesh($PebData, "Pisum_sativum_whole_distort_wt"); ?>
-			<?php echo allMesh($PebData, "Triticum_sp_apex_embryo"); ?>
-			<?php echo allMesh($PebData, "Triticum_sp_halves"); ?>
-			<?php echo allMesh($PebData, "Vitis_vinifera_frag"); ?>
+			<?php echo meshTableHeader($DomFrags); ?>
+			<?php echo allMesh($DomFrags, "Cereal_frag_CT"); ?>
+			<?php echo allMesh($DomFrags, "Fabaceae_frags"); ?>
+			<?php echo allMesh($DomFrags, "Hordeum_frags"); ?>
+			<?php echo allMesh($DomFrags, "Nutshell_frag"); ?>
+			<?php echo allMesh($DomFrags, "Olea_sp_shell_frag"); ?>
+			<?php echo allMesh($DomFrags, "Pisum_sativum_frags"); ?>
+			<?php echo allMesh($DomFrags, "Pisum_sativum_frags_wt"); ?>
+			<?php echo allMesh($DomFrags, "Pisum_sativum_halves"); ?>
+			<?php echo allMesh($DomFrags, "Pisum_sativum_halves_wt"); ?>
+			<?php echo allMesh($DomFrags, "Pisum_sativum_whole_distort"); ?>
+			<?php echo allMesh($DomFrags, "Pisum_sativum_whole_distort_wt"); ?>
+			<?php echo allMesh($DomFrags, "Triticum_sp_apex_embryo"); ?>
+			<?php echo allMesh($DomFrags, "Triticum_sp_halves"); ?>
+			<?php echo allMesh($DomFrags, "Vitis_vinifera_frag"); ?>
 		</table>
 	</div>
 	
 	<div id="tab2" class='tab'>
 		<h2>Families</h2>
+
 		<p>linked to wikipedia</p>
 		<table>
-			<?php echo meshTableHeader($PebData); ?>
-			<?php echo allMesh($PebData, "Amaranthaceae") ?>
-			<?php echo allMesh($PebData, "Apiaceae") ?>
-			<?php echo allMesh($PebData, "Asteraceae") ?>
-			<?php echo allMesh($PebData, "Boraginaceae_mineralized") ?>
-			<?php echo allMesh($PebData, "Boraginaceae_burnt") ?>
-			<?php echo allMesh($PebData, "Brassicaceae") ?>
-			<?php echo allMesh($PebData, "Caryophyllaceae") ?>
-			<?php echo allMesh($PebData, "Chenopodiaceae") ?>
-			<?php echo allMesh($PebData, "Cyperaceae") ?>
-			<?php echo allMesh($PebData, "Dipsacaceae") ?>
-			<?php echo allMesh($PebData, "Fabaceae") ?>
-			<?php echo allMesh($PebData, "Lamiaceae") ?>
-			<?php echo allMesh($PebData, "Malvaceae") ?>
-			<?php echo allMesh($PebData, "Papaveraceae") ?>
-			<?php echo allMesh($PebData, "Poaceae") ?>
-			<?php echo allMesh($PebData, "Poaceae_Frags") ?>
-			<?php echo allMesh($PebData, "Polygonaceae") ?>
-			<?php echo allMesh($PebData, "Portulaceae") ?>
-			<?php echo allMesh($PebData, "Rubiaceae") ?>
-			<?php echo allMesh($PebData, "Scrophulariaceae") ?>
-			<?php echo allMesh($PebData, "Solanaceae") ?>
+			<?php echo meshTableHeader($Fams); ?>
+			<?php echo allMesh($Fams, "Amaranthaceae") ?>
+			<?php echo allMesh($Fams, "Apiaceae") ?>
+			<?php echo allMesh($Fams, "Asteraceae") ?>
+			<?php echo allMesh($Fams, "Boraginaceae_mineralized") ?>
+			<?php echo allMesh($Fams, "Boraginaceae_burnt") ?>
+			<?php echo allMesh($Fams, "Brassicaceae") ?>
+			<?php echo allMesh($Fams, "Caryophyllaceae") ?>
+			<?php echo allMesh($Fams, "Chenopodiaceae") ?>
+			<?php echo allMesh($Fams, "Cyperaceae") ?>
+			<?php echo allMesh($Fams, "Dipsacaceae") ?>
+			<?php echo allMesh($Fams, "Fabaceae") ?>
+			<?php echo allMesh($Fams, "Lamiaceae") ?>
+			<?php echo allMesh($Fams, "Malvaceae") ?>
+			<?php echo allMesh($Fams, "Papaveraceae") ?>
+			<?php echo allMesh($Fams, "Poaceae") ?>
+			<?php echo allMesh($Fams, "Poaceae_Frags") ?>
+			<?php echo allMesh($Fams, "Polygonaceae") ?>
+			<?php echo allMesh($Fams, "Portulaceae") ?>
+			<?php echo allMesh($Fams, "Rubiaceae") ?>
+			<?php echo allMesh($Fams, "Scrophulariaceae") ?>
+			<?php echo allMesh($Fams, "Solanaceae") ?>
 		</table>
 	</div>
 
 	<div id="tab3" class='tab'>
 		<h2>Weeds and Wild</h2>
+
 		<p>linked to wikipedia</p>
 		<table>
-			<?php echo meshTableHeader($PebData); ?>
-			<?php echo allMesh($PebData, "Adonis"); ?>
-			<?php echo allMesh($PebData, "Agrostemma"); ?>
-			<?php echo allMesh($PebData, "Aizoon"); ?>
-			<?php echo allMesh($PebData, "Ajuga"); ?>
-			<?php echo allMesh($PebData, "Amaranthus"); ?>
-			<?php echo allMesh($PebData, "Androsace_maxima"); ?>
-			<?php echo allMesh($PebData, "Anthemis"); ?>
-			<?php echo allMesh($PebData, "Arnebia"); ?>
-			<?php echo allMesh($PebData, "Artemisia"); ?>
-			<?php echo allMesh($PebData, "Asparagus"); ?>
-			<?php echo allMesh($PebData, "Asphodelus"); ?>
-			<?php echo allMesh($PebData, "Astragalus"); ?>
-			<?php echo allMesh($PebData, "Atriplex"); ?>
-			<?php echo allMesh($PebData, "Avena"); ?>
-			<?php echo allMesh($PebData, "Bellevalia"); ?>
-			<?php echo allMesh($PebData, "Brassica"); ?>
-			<?php echo allMesh($PebData, "Bromus"); ?>
-			<?php echo allMesh($PebData, "Bupleurum"); ?>
-			<?php echo allMesh($PebData, "Calendula"); ?>
-			<?php echo allMesh($PebData, "Camelina"); ?>
-			<?php echo allMesh($PebData, "Carex"); ?>
-			<?php echo allMesh($PebData, "Carex_Scirpus"); ?>
-			<?php echo allMesh($PebData, "Centaurea"); ?>
-			<?php echo allMesh($PebData, "Cephalaria_syriaca"); ?>
-			<?php echo allMesh($PebData, "Cerastium"); ?>
-			<?php echo allMesh($PebData, "cf_Asparagus"); ?>
-			<?php echo allMesh($PebData, "cf_Berberis"); ?>
-			<?php echo allMesh($PebData, "cf_Camelina"); ?>
-			<?php echo allMesh($PebData, "cf_Setaria"); ?>
-			<?php echo allMesh($PebData, "Chenopodium_album"); ?>
-			<?php echo allMesh($PebData, "Convolvulus"); ?>
-			<?php echo allMesh($PebData, "Coronilla"); ?>
-			<?php echo allMesh($PebData, "Eleocharis"); ?>
-			<?php echo allMesh($PebData, "Eragrostis"); ?>
-			<?php echo allMesh($PebData, "Eremo_Agropyron"); ?>
-			<?php echo allMesh($PebData, "Erodium"); ?>
-			<?php echo allMesh($PebData, "Erodium_cicutarium_awn"); ?>
-			<?php echo allMesh($PebData, "Euphorbia"); ?>
-			<?php echo allMesh($PebData, "Fumaria"); ?>
-			<?php echo allMesh($PebData, "Galium"); ?>
-			<?php echo allMesh($PebData, "Glaucium"); ?>
-			<?php echo allMesh($PebData, "Heliotropium"); ?>
-			<?php echo allMesh($PebData, "Hippocrepis"); ?>
-			<?php echo allMesh($PebData, "Hordeum_murinum_boeticum"); ?>
-			<?php echo allMesh($PebData, "Hyoscyamus"); ?>
-			<?php echo allMesh($PebData, "Lavatera"); ?>
-			<?php echo allMesh($PebData, "Lolium"); ?>
-			<?php echo allMesh($PebData, "Malva"); ?>
-			<?php echo allMesh($PebData, "Medicago"); ?>
-			<?php echo allMesh($PebData, "Medicago_type"); ?>
-			<?php echo allMesh($PebData, "Melilotus_Trifolium"); ?>
-			<?php echo allMesh($PebData, "Melilotus_Trifolium_punctate"); ?>
-			<?php echo allMesh($PebData, "Onopordum_Eleusine"); ?>
-			<?php echo allMesh($PebData, "Ornithogalum"); ?>
-			<?php echo allMesh($PebData, "Ornithogalum_type"); ?>
-			<?php echo allMesh($PebData, "Papaver"); ?>
-			<?php echo allMesh($PebData, "Peganum_harmala"); ?>
-			<?php echo allMesh($PebData, "Phalaris"); ?>
-			<?php echo allMesh($PebData, "Phleum"); ?>
-			<?php echo allMesh($PebData, "Plantago"); ?>
-			<?php echo allMesh($PebData, "Polygonum"); ?>
-			<?php echo allMesh($PebData, "Portulaca"); ?>
-			<?php echo allMesh($PebData, "Rumex"); ?>
-			<?php echo allMesh($PebData, "Salsola"); ?>
-			<?php echo allMesh($PebData, "Schinus"); ?>
-			<?php echo allMesh($PebData, "Scirpus"); ?>
-			<?php echo allMesh($PebData, "Scorpiurus"); ?>
-			<?php echo allMesh($PebData, "Silene"); ?>
-			<?php echo allMesh($PebData, "Stellaria"); ?>
-			<?php echo allMesh($PebData, "Stipa"); ?>
-			<?php echo allMesh($PebData, "Suaeda"); ?>
-			<?php echo allMesh($PebData, "Teucrium"); ?>
-			<?php echo allMesh($PebData, "Thymelaea"); ?>
-			<?php echo allMesh($PebData, "Trifolium_repens"); ?>
-			<?php echo allMesh($PebData, "Trifolium_cf_repens"); ?>
-			<?php echo allMesh($PebData, "Trigonella"); ?>
-			<?php echo allMesh($PebData, "Trigonella_astroites"); ?>
-			<?php echo allMesh($PebData, "Trigonella_coele_syriaca"); ?>
-			<?php echo allMesh($PebData, "Vaccaria"); ?>
-			<?php echo allMesh($PebData, "Verbascum"); ?>
-			<?php echo allMesh($PebData, "Veronica"); ?>
-			<?php echo allMesh($PebData, "Ziziphora"); ?>
+			<?php echo meshTableHeader($WeedsWilds); ?>
+			<?php echo allMesh($WeedsWilds, "Adonis"); ?>
+			<?php echo allMesh($WeedsWilds, "Agrostemma"); ?>
+			<?php echo allMesh($WeedsWilds, "Aizoon"); ?>
+			<?php echo allMesh($WeedsWilds, "Ajuga"); ?>
+			<?php echo allMesh($WeedsWilds, "Amaranthus"); ?>
+			<?php echo allMesh($WeedsWilds, "Androsace_maxima"); ?>
+			<?php echo allMesh($WeedsWilds, "Anthemis"); ?>
+			<?php echo allMesh($WeedsWilds, "Arnebia"); ?>
+			<?php echo allMesh($WeedsWilds, "Artemisia"); ?>
+			<?php echo allMesh($WeedsWilds, "Asparagus"); ?>
+			<?php echo allMesh($WeedsWilds, "Asphodelus"); ?>
+			<?php echo allMesh($WeedsWilds, "Astragalus"); ?>
+			<?php echo allMesh($WeedsWilds, "Atriplex"); ?>
+			<?php echo allMesh($WeedsWilds, "Avena"); ?>
+			<?php echo allMesh($WeedsWilds, "Bellevalia"); ?>
+			<?php echo allMesh($WeedsWilds, "Brassica"); ?>
+			<?php echo allMesh($WeedsWilds, "Bromus"); ?>
+			<?php echo allMesh($WeedsWilds, "Bupleurum"); ?>
+			<?php echo allMesh($WeedsWilds, "Calendula"); ?>
+			<?php echo allMesh($WeedsWilds, "Camelina"); ?>
+			<?php echo allMesh($WeedsWilds, "Carex"); ?>
+			<?php echo allMesh($WeedsWilds, "Carex_Scirpus"); ?>
+			<?php echo allMesh($WeedsWilds, "Centaurea"); ?>
+			<?php echo allMesh($WeedsWilds, "Cephalaria_syriaca"); ?>
+			<?php echo allMesh($WeedsWilds, "Cerastium"); ?>
+			<?php echo allMesh($WeedsWilds, "cf_Asparagus"); ?>
+			<?php echo allMesh($WeedsWilds, "cf_Berberis"); ?>
+			<?php echo allMesh($WeedsWilds, "cf_Camelina"); ?>
+			<?php echo allMesh($WeedsWilds, "cf_Setaria"); ?>
+			<?php echo allMesh($WeedsWilds, "Chenopodium_album"); ?>
+			<?php echo allMesh($WeedsWilds, "Convolvulus"); ?>
+			<?php echo allMesh($WeedsWilds, "Coronilla"); ?>
+			<?php echo allMesh($WeedsWilds, "Eleocharis"); ?>
+			<?php echo allMesh($WeedsWilds, "Eragrostis"); ?>
+			<?php echo allMesh($WeedsWilds, "Eremo_Agropyron"); ?>
+			<?php echo allMesh($WeedsWilds, "Erodium"); ?>
+			<?php echo allMesh($WeedsWilds, "Erodium_cicutarium_awn"); ?>
+			<?php echo allMesh($WeedsWilds, "Euphorbia"); ?>
+			<?php echo allMesh($WeedsWilds, "Fumaria"); ?>
+			<?php echo allMesh($WeedsWilds, "Galium"); ?>
+			<?php echo allMesh($WeedsWilds, "Glaucium"); ?>
+			<?php echo allMesh($WeedsWilds, "Heliotropium"); ?>
+			<?php echo allMesh($WeedsWilds, "Hippocrepis"); ?>
+			<?php echo allMesh($WeedsWilds, "Hordeum_murinum_boeticum"); ?>
+			<?php echo allMesh($WeedsWilds, "Hyoscyamus"); ?>
+			<?php echo allMesh($WeedsWilds, "Lavatera"); ?>
+			<?php echo allMesh($WeedsWilds, "Lolium"); ?>
+			<?php echo allMesh($WeedsWilds, "Malva"); ?>
+			<?php echo allMesh($WeedsWilds, "Medicago"); ?>
+			<?php echo allMesh($WeedsWilds, "Medicago_type"); ?>
+			<?php echo allMesh($WeedsWilds, "Melilotus_Trifolium"); ?>
+			<?php echo allMesh($WeedsWilds, "Melilotus_Trifolium_punctate"); ?>
+			<?php echo allMesh($WeedsWilds, "Onopordum_Eleusine"); ?>
+			<?php echo allMesh($WeedsWilds, "Ornithogalum"); ?>
+			<?php echo allMesh($WeedsWilds, "Ornithogalum_type"); ?>
+			<?php echo allMesh($WeedsWilds, "Papaver"); ?>
+			<?php echo allMesh($WeedsWilds, "Peganum_harmala"); ?>
+			<?php echo allMesh($WeedsWilds, "Phalaris"); ?>
+			<?php echo allMesh($WeedsWilds, "Phleum"); ?>
+			<?php echo allMesh($WeedsWilds, "Plantago"); ?>
+			<?php echo allMesh($WeedsWilds, "Polygonum"); ?>
+			<?php echo allMesh($WeedsWilds, "Portulaca"); ?>
+			<?php echo allMesh($WeedsWilds, "Rumex"); ?>
+			<?php echo allMesh($WeedsWilds, "Salsola"); ?>
+			<?php echo allMesh($WeedsWilds, "Schinus"); ?>
+			<?php echo allMesh($WeedsWilds, "Scirpus"); ?>
+			<?php echo allMesh($WeedsWilds, "Scorpiurus"); ?>
+			<?php echo allMesh($WeedsWilds, "Silene"); ?>
+			<?php echo allMesh($WeedsWilds, "Stellaria"); ?>
+			<?php echo allMesh($WeedsWilds, "Stipa"); ?>
+			<?php echo allMesh($WeedsWilds, "Suaeda"); ?>
+			<?php echo allMesh($WeedsWilds, "Teucrium"); ?>
+			<?php echo allMesh($WeedsWilds, "Thymelaea"); ?>
+			<?php echo allMesh($WeedsWilds, "Trifolium_repens"); ?>
+			<?php echo allMesh($WeedsWilds, "Trifolium_cf_repens"); ?>
+			<?php echo allMesh($WeedsWilds, "Trigonella"); ?>
+			<?php echo allMesh($WeedsWilds, "Trigonella_astroites"); ?>
+			<?php echo allMesh($WeedsWilds, "Trigonella_coele_syriaca"); ?>
+			<?php echo allMesh($WeedsWilds, "Vaccaria"); ?>
+			<?php echo allMesh($WeedsWilds, "Verbascum"); ?>
+			<?php echo allMesh($WeedsWilds, "Veronica"); ?>
+			<?php echo allMesh($WeedsWilds, "Ziziphora"); ?>
 		</table>
 	</div>
 
@@ -239,38 +242,39 @@
 		<h2>Unks &amp; Frags</h2>
 		<p>linked to wikipedia</p>
 		<table>
-			<?php echo meshTableHeader($PebData); ?>
-			<?php echo allMesh($PebData, "Clinker"); ?>
-			<?php echo allMesh($PebData, "Indeterminate_rachis"); ?>
-			<?php echo allMesh($PebData, "Parenchyma_fragment"); ?>
-			<?php echo allMesh($PebData, "Rachis_fragment"); ?>
-			<?php echo allMesh($PebData, "Unknown_fruit_seed"); ?>
-			<?php echo allMesh($PebData, "Unidentifiable_seed_fragment"); ?>
-			<?php echo allMesh($PebData, "Unknown_rachis_remains"); ?>
-			<?php echo allMesh($PebData, "Unknown_non_Poaceae"); ?>
+			<?php echo meshTableHeader($Unknowns); ?>
+			<?php echo allMesh($Unknowns, "Clinker"); ?>
+			<?php echo allMesh($Unknowns, "Indeterminate_rachis"); ?>
+			<?php echo allMesh($Unknowns, "Parenchyma_fragment"); ?>
+			<?php echo allMesh($Unknowns, "Rachis_fragment"); ?>
+			<?php echo allMesh($Unknowns, "Unknown_fruit_seed"); ?>
+			<?php echo allMesh($Unknowns, "Unidentifiable_seed_fragment"); ?>
+			<?php echo allMesh($Unknowns, "Unknown_rachis_remains"); ?>
+			<?php echo allMesh($Unknowns, "Unknown_non_Poaceae"); ?>
 		</table>
 	</div>
 
 	<div id="tab5" class='tab'>
 		<h2>Rachis Remains</h2>
+
 		<p>linked to wikipedia</p>
 		<table>
-			<?php echo meshTableHeader($PebData); ?>
-			<?php echo allMesh($PebData, "Poaceae_culm"); ?>
-			<?php echo allMesh($PebData, "Poaceae_root"); ?>
-			<?php echo allMesh($PebData, "Hordeum_internode"); ?>
-			<?php echo allMesh($PebData, "Hordeum_rachis"); ?>
-			<?php echo allMesh($PebData, "Triticum_aestivum_rachis"); ?>
-			<?php echo allMesh($PebData, "Triticum_aestivum_durum_rachis"); ?>
-			<?php echo allMesh($PebData, "Triticum_aestivum_durum_rachis_internode"); ?>
-			<?php echo allMesh($PebData, "Triticum_aestivum_durum_rachis_node"); ?>
-			<?php echo allMesh($PebData, "Triticum_durum_rachis"); ?>
-			<?php echo allMesh($PebData, "Triticum_mono_di_rachis"); ?>
-			<?php echo allMesh($PebData, "Triticum_glume"); ?>
-			<?php echo allMesh($PebData, "Triticum_internode"); ?>
-			<?php echo allMesh($PebData, "Triticum_node"); ?>
-			<?php echo allMesh($PebData, "Triticum_rachis"); ?>
-			<?php echo allMesh($PebData, "Wild_or_Weed_rachis"); ?>
+			<?php echo meshTableHeader($Rachis); ?>
+			<?php echo allMesh($Rachis, "Poaceae_culm"); ?>
+			<?php echo allMesh($Rachis, "Poaceae_root"); ?>
+			<?php echo allMesh($Rachis, "Hordeum_internode"); ?>
+			<?php echo allMesh($Rachis, "Hordeum_rachis"); ?>
+			<?php echo allMesh($Rachis, "Triticum_aestivum_rachis"); ?>
+			<?php echo allMesh($Rachis, "Triticum_aestivum_durum_rachis"); ?>
+			<?php echo allMesh($Rachis, "Triticum_aestivum_durum_rachis_internode"); ?>
+			<?php echo allMesh($Rachis, "Triticum_aestivum_durum_rachis_node"); ?>
+			<?php echo allMesh($Rachis, "Triticum_durum_rachis"); ?>
+			<?php echo allMesh($Rachis, "Triticum_mono_di_rachis"); ?>
+			<?php echo allMesh($Rachis, "Triticum_glume"); ?>
+			<?php echo allMesh($Rachis, "Triticum_internode"); ?>
+			<?php echo allMesh($Rachis, "Triticum_node"); ?>
+			<?php echo allMesh($Rachis, "Triticum_rachis"); ?>
+			<?php echo allMesh($Rachis, "Wild_or_Weed_rachis"); ?>
 
 			<tfoot>
 				<th></th>
@@ -284,16 +288,16 @@
 		<h2>Other Remains</h2>
 
 		<table>
-			<?php echo meshTableHeader($PebData); ?>
-			<?php echo allMesh($PebData, "Bone"); ?>
-			<?php echo allMesh($PebData, "Carbonized_insect"); ?>
-			<?php echo allMesh($PebData, "Dung"); ?>
-			<?php echo allMesh($PebData, "Eggshell"); ?>
-			<?php echo allMesh($PebData, "Fish_Scale"); ?>
-			<?php echo allMesh($PebData, "Fish_Vertebra"); ?>
-			<?php echo allMesh($PebData, "Insect_Pupae"); ?>
-			<?php echo allMesh($PebData, "Shell"); ?>
-			<?php echo allMesh($PebData, "Shell_Burnt"); ?>
+			<?php echo meshTableHeader($Others); ?>
+			<?php echo allMesh($Others, "Bone"); ?>
+			<?php echo allMesh($Others, "Carbonized_insect"); ?>
+			<?php echo allMesh($Others, "Dung"); ?>
+			<?php echo allMesh($Others, "Eggshell"); ?>
+			<?php echo allMesh($Others, "Fish_Scale"); ?>
+			<?php echo allMesh($Others, "Fish_Vertebra"); ?>
+			<?php echo allMesh($Others, "Insect_Pupae"); ?>
+			<?php echo allMesh($Others, "Shell"); ?>
+			<?php echo allMesh($Others, "Shell_Burnt"); ?>
 			<tfoot>
 				<th></th>
 				<td colspan="3"><a href="">// Edit //</a></td>

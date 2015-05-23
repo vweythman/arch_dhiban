@@ -13,10 +13,10 @@
 	<tbody>
 		<?php 
 			foreach ($samples as $sample) {
-				$id = $sample->LabFlot;
+				$id = $sample->LabLF;
 				echo "<tr>";
 				echo "<th>".$sample->labFlotLink()."</th>";
-				echo "<td>".$sample->Flot."</td>";
+				echo "<td>".$sample->LabLF."</td>";
 				echo "<td>".$sample->HFLink()."</td>";
 				echo "<td>".$sample->Bag."</td>";
 				echo "<td>".$sample->Exc."</td>";

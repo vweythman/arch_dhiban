@@ -3,95 +3,109 @@
 use Phalcon\Mvc\Model;
 
 // Artifact Sample
-class OtherRemains extends Model {
+class WeedsWilds extends Model {
+
+	/* 
+	*  GET_SOURCE
+	*  defines the table connected to the model
+	*/
+	public function getSource()
+	{
+		return 'raw_peb_weed';
+	}
 
 	public function afterFetch()
 	{
-		self::$sumAdonis                       += $this->Adonis;
-		self::$sumAgrostemma                   += $this->Agrostemma;
-		self::$sumAizoon                       += $this->Aizoon;
-		self::$sumAjuga                        += $this->Ajuga;
-		self::$sumAmaranthus                   += $this->Amaranthus;
-		self::$sumAndrosace_maxima             += $this->Androsace_maxima;
-		self::$sumAnthemis                     += $this->Anthemis;
-		self::$sumArnebia                      += $this->Arnebia;
-		self::$sumArtemisia                    += $this->Artemisia;
-		self::$sumAsparagus                    += $this->Asparagus;
-		self::$sumAsphodelus                   += $this->Asphodelus;
-		self::$sumAstragalus                   += $this->Astragalus;
-		self::$sumAtriplex                     += $this->Atriplex;
-		self::$sumAvena                        += $this->Avena;
-		self::$sumBellevalia                   += $this->Bellevalia;
-		self::$sumBrassica                     += $this->Brassica;
-		self::$sumBromus                       += $this->Bromus;
-		self::$sumBupleurum                    += $this->Bupleurum;
-		self::$sumCalendula                    += $this->Calendula;
-		self::$sumCamelina                     += $this->Camelina;
-		self::$sumCarex                        += $this->Carex;
-		self::$sumCarex_Scirpus                += $this->Carex_Scirpus;
-		self::$sumCentaurea                    += $this->Centaurea;
-		self::$sumCephalaria_syriaca           += $this->Cephalaria_syriaca;
-		self::$sumCerastium                    += $this->Cerastium;
-		self::$sumcf_Asparagus                 += $this->cf_Asparagus;
-		self::$sumcf_Berberis                  += $this->cf_Berberis;
-		self::$sumcf_Camelina                  += $this->cf_Camelina;
-		self::$sumcf_Setaria                   += $this->cf_Setaria;
-		self::$sumChenopodium_album            += $this->Chenopodium_album;
-		self::$sumConvolvulus                  += $this->Convolvulus;
-		self::$sumCoronilla                    += $this->Coronilla;
-		self::$sumEleocharis                   += $this->Eleocharis;
-		self::$sumEragrostis                   += $this->Eragrostis;
-		self::$sumEremo_Agropyron              += $this->Eremo_Agropyron;
-		self::$sumErodium                      += $this->Erodium;
-		self::$sumErodium_cicutarium_awn       += $this->Erodium_cicutarium_awn;
-		self::$sumEuphorbia                    += $this->Euphorbia;
-		self::$sumFumaria                      += $this->Fumaria;
-		self::$sumGalium                       += $this->Galium;
-		self::$sumGlaucium                     += $this->Glaucium;
-		self::$sumHeliotropium                 += $this->Heliotropium;
-		self::$sumHippocrepis                  += $this->Hippocrepis;
-		self::$sumHordeum_murinum_boeticum     += $this->Hordeum_murinum_boeticum;
-		self::$sumHyoscyamus                   += $this->Hyoscyamus;
-		self::$sumLavatera                     += $this->Lavatera;
-		self::$sumLolium                       += $this->Lolium;
-		self::$sumMalva                        += $this->Malva;
-		self::$sumMedicago                     += $this->Medicago;
-		self::$sumMedicago_type                += $this->Medicago_type;
-		self::$sumMelilotus_Trifolium          += $this->Melilotus_Trifolium;
-		self::$sumMelilotus_Trifolium_punctate += $this->Melilotus_Trifolium_punctate;
-		self::$sumOnopordum_Eleusine           += $this->Onopordum_Eleusine;
-		self::$sumOrnithogalum                 += $this->Ornithogalum;
-		self::$sumOrnithogalum_type            += $this->Ornithogalum_type;
-		self::$sumPapaver                      += $this->Papaver;
-		self::$sumPeganum_harmala              += $this->Peganum_harmala;
-		self::$sumPhalaris                     += $this->Phalaris;
-		self::$sumPhleum                       += $this->Phleum;
-		self::$sumPlantago                     += $this->Plantago;
-		self::$sumPolygonum                    += $this->Polygonum;
-		self::$sumPortulaca                    += $this->Portulaca;
-		self::$sumRumex                        += $this->Rumex;
-		self::$sumSalsola                      += $this->Salsola;
-		self::$sumSchinus                      += $this->Schinus;
-		self::$sumScirpus                      += $this->Scirpus;
-		self::$sumScorpiurus                   += $this->Scorpiurus;
-		self::$sumSilene                       += $this->Silene;
-		self::$sumStellaria                    += $this->Stellaria;
-		self::$sumStipa                        += $this->Stipa;
-		self::$sumSuaeda                       += $this->Suaeda;
-		self::$sumTeucrium                     += $this->Teucrium;
-		self::$sumThymelaea                    += $this->Thymelaea;
-		self::$sumTrifolium_repens             += $this->Trifolium_repens;
-		self::$sumTrifolium_cf_repens          += $this->Trifolium_cf_repens;
-		self::$sumTrigonella                   += $this->Trigonella;
-		self::$sumTrigonella_astroites         += $this->Trigonella_astroites;
-		self::$sumTrigonella_coele_syriaca     += $this->Trigonella_coele_syriaca;
-		self::$sumVaccaria                     += $this->Vaccaria;
-		self::$sumVerbascum                    += $this->Verbascum;
-		self::$sumVeronica                     += $this->Veronica;
-		self::$sumZiziphora                    += $this->Ziziphora;
+		self::$sumMesh += $this->Mesh;
+		if (self::$sumMesh < 3.6) {
+			self::$sumAdonis                       += $this->Adonis;
+			self::$sumAgrostemma                   += $this->Agrostemma;
+			self::$sumAizoon                       += $this->Aizoon;
+			self::$sumAjuga                        += $this->Ajuga;
+			self::$sumAmaranthus                   += $this->Amaranthus;
+			self::$sumAndrosace_maxima             += $this->Androsace_maxima;
+			self::$sumAnthemis                     += $this->Anthemis;
+			self::$sumArnebia                      += $this->Arnebia;
+			self::$sumArtemisia                    += $this->Artemisia;
+			self::$sumAsparagus                    += $this->Asparagus;
+			self::$sumAsphodelus                   += $this->Asphodelus;
+			self::$sumAstragalus                   += $this->Astragalus;
+			self::$sumAtriplex                     += $this->Atriplex;
+			self::$sumAvena                        += $this->Avena;
+			self::$sumBellevalia                   += $this->Bellevalia;
+			self::$sumBrassica                     += $this->Brassica;
+			self::$sumBromus                       += $this->Bromus;
+			self::$sumBupleurum                    += $this->Bupleurum;
+			self::$sumCalendula                    += $this->Calendula;
+			self::$sumCamelina                     += $this->Camelina;
+			self::$sumCarex                        += $this->Carex;
+			self::$sumCarex_Scirpus                += $this->Carex_Scirpus;
+			self::$sumCentaurea                    += $this->Centaurea;
+			self::$sumCephalaria_syriaca           += $this->Cephalaria_syriaca;
+			self::$sumCerastium                    += $this->Cerastium;
+			self::$sumcf_Asparagus                 += $this->cf_Asparagus;
+			self::$sumcf_Berberis                  += $this->cf_Berberis;
+			self::$sumcf_Camelina                  += $this->cf_Camelina;
+			self::$sumcf_Setaria                   += $this->cf_Setaria;
+			self::$sumChenopodium_album            += $this->Chenopodium_album;
+			self::$sumConvolvulus                  += $this->Convolvulus;
+			self::$sumCoronilla                    += $this->Coronilla;
+			self::$sumEleocharis                   += $this->Eleocharis;
+			self::$sumEragrostis                   += $this->Eragrostis;
+			self::$sumEremo_Agropyron              += $this->Eremo_Agropyron;
+			self::$sumErodium                      += $this->Erodium;
+			self::$sumErodium_cicutarium_awn       += $this->Erodium_cicutarium_awn;
+			self::$sumEuphorbia                    += $this->Euphorbia;
+			self::$sumFumaria                      += $this->Fumaria;
+			self::$sumGalium                       += $this->Galium;
+			self::$sumGlaucium                     += $this->Glaucium;
+			self::$sumHeliotropium                 += $this->Heliotropium;
+			self::$sumHippocrepis                  += $this->Hippocrepis;
+			self::$sumHordeum_murinum_boeticum     += $this->Hordeum_murinum_boeticum;
+			self::$sumHyoscyamus                   += $this->Hyoscyamus;
+			self::$sumLavatera                     += $this->Lavatera;
+			self::$sumLolium                       += $this->Lolium;
+			self::$sumMalva                        += $this->Malva;
+			self::$sumMedicago                     += $this->Medicago;
+			self::$sumMedicago_type                += $this->Medicago_type;
+			self::$sumMelilotus_Trifolium          += $this->Melilotus_Trifolium;
+			self::$sumMelilotus_Trifolium_punctate += $this->Melilotus_Trifolium_punctate;
+			self::$sumOnopordum_Eleusine           += $this->Onopordum_Eleusine;
+			self::$sumOrnithogalum                 += $this->Ornithogalum;
+			self::$sumOrnithogalum_type            += $this->Ornithogalum_type;
+			self::$sumPapaver                      += $this->Papaver;
+			self::$sumPeganum_harmala              += $this->Peganum_harmala;
+			self::$sumPhalaris                     += $this->Phalaris;
+			self::$sumPhleum                       += $this->Phleum;
+			self::$sumPlantago                     += $this->Plantago;
+			self::$sumPolygonum                    += $this->Polygonum;
+			self::$sumPortulaca                    += $this->Portulaca;
+			self::$sumRumex                        += $this->Rumex;
+			self::$sumSalsola                      += $this->Salsola;
+			self::$sumSchinus                      += $this->Schinus;
+			self::$sumScirpus                      += $this->Scirpus;
+			self::$sumScorpiurus                   += $this->Scorpiurus;
+			self::$sumSilene                       += $this->Silene;
+			self::$sumStellaria                    += $this->Stellaria;
+			self::$sumStipa                        += $this->Stipa;
+			self::$sumSuaeda                       += $this->Suaeda;
+			self::$sumTeucrium                     += $this->Teucrium;
+			self::$sumThymelaea                    += $this->Thymelaea;
+			self::$sumTrifolium_repens             += $this->Trifolium_repens;
+			self::$sumTrifolium_cf_repens          += $this->Trifolium_cf_repens;
+			self::$sumTrigonella                   += $this->Trigonella;
+			self::$sumTrigonella_astroites         += $this->Trigonella_astroites;
+			self::$sumTrigonella_coele_syriaca     += $this->Trigonella_coele_syriaca;
+			self::$sumVaccaria                     += $this->Vaccaria;
+			self::$sumVerbascum                    += $this->Verbascum;
+			self::$sumVeronica                     += $this->Veronica;
+			self::$sumZiziphora                    += $this->Ziziphora;
+		}
 	}
 
 	// PROPERTIES
+	public $Mesh;
+
 	public $Adonis;
 	public $Agrostemma;
 	public $Aizoon;
@@ -176,6 +190,7 @@ class OtherRemains extends Model {
 	public $Ziziphora;
 
 	// SUMS
+	public static $sumMesh = 0.0;
 	public static $sumAdonis                       = 0;
 	public static $sumAgrostemma                   = 0;
 	public static $sumAizoon                       = 0;

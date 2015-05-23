@@ -39,14 +39,23 @@
 	function allMesh($data, $value)
 	{
 		$title = wikiThis($value);
-		$sum   = "sum$value";
+		$sumtitle   = "sum$value";
 
 		echo "<tr>";
 		echo "<th>$title</th>";
-		echo "<td>".$data[0]->$value."</td>";
-		echo "<td>".$data[1]->$value."</td>";
-		echo "<td>".$data[2]->$value."</td>";
-		echo "<td>".$data[2]::$$sum."</td>";
+		if (count($data) > 0)
+		{
+			foreach ($data as $dataPoint) {
+				echo "<td>".$dataPoint->$value."</td>";
+			}
+			echo "<td>".$dataPoint::$$sumtitle."</td>";
+		}
+		else {
+			echo "<td>0</td>";
+			echo "<td>0</td>";
+			echo "<td>0</td>";
+			echo "<td>0</td>";
+		}
 	}
 	/*
 	* MESH_TABLE_HEADER
@@ -62,9 +71,9 @@
 		echo "</tr>";
 		echo "<tr>";
 		echo "<th>&nbsp;</th>";
-		echo "<th>".$data[0]->Mesh."</th>";
-		echo "<th>".$data[1]->Mesh."</th>";
-		echo "<th>".$data[2]->Mesh."</th>";
+		foreach ($data as $dataPoint) {
+			echo "<th>".$dataPoint->Mesh."</th>";
+		}
 		echo "<th>Total</th>";
 		echo "</tr>";
 		echo "</thead>";

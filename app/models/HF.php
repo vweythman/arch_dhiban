@@ -20,7 +20,6 @@ class HF extends Model
 	*/
 	public function initialize()
 	{
-		// $internalID, $assocModelName, $idFromAssocModel
 		$this->hasMany('HF', 'Flots', 'HF');
 	}
 

@@ -3,33 +3,49 @@
 use Phalcon\Mvc\Model;
 
 // Artifact Sample
-class Families extends Model {
-	public function afterFetch() 
+class FamiliesRemains extends Model {
+
+	/* 
+	*  GET_SOURCE
+	*  defines the table connected to the model
+	*/
+	public function getSource()
 	{
-		self::$sumAmaranthaceae            += $this->Amaranthaceae;
-		self::$sumApiaceae                 += $this->Apiaceae;
-		self::$sumAsteraceae               += $this->Asteraceae;
-		self::$sumBoraginaceae_mineralized += $this->Boraginaceae_mineralized;
-		self::$sumBoraginaceae_burnt       += $this->Boraginaceae_burnt;
-		self::$sumBrassicaceae             += $this->Brassicaceae;
-		self::$sumCaryophyllaceae          += $this->Caryophyllaceae;
-		self::$sumChenopodiaceae           += $this->Chenopodiaceae;
-		self::$sumCyperaceae               += $this->Cyperaceae;
-		self::$sumDipsacaceae              += $this->Dipsacaceae;
-		self::$sumFabaceae                 += $this->Fabaceae;
-		self::$sumLamiaceae                += $this->Lamiaceae;
-		self::$sumMalvaceae                += $this->Malvaceae;
-		self::$sumPapaveraceae             += $this->Papaveraceae;
-		self::$sumPoaceae                  += $this->Poaceae;
-		self::$sumPoaceae_Frags            += $this->Poaceae_Frags;
-		self::$sumPolygonaceae             += $this->Polygonaceae;
-		self::$sumPortulaceae              += $this->Portulaceae;
-		self::$sumRubiaceae                += $this->Rubiaceae;
-		self::$sumScrophulariaceae         += $this->Scrophulariaceae;
-		self::$sumSolanaceae               += $this->Solanaceae;
+		return 'raw_peb_fam';
 	}
 
+	public function afterFetch() 
+	{
+		self::$sumMesh += $this->Mesh;
+		if (self::$sumMesh < 3.6) {
+			self::$sumAmaranthaceae            += $this->Amaranthaceae;
+			self::$sumApiaceae                 += $this->Apiaceae;
+			self::$sumAsteraceae               += $this->Asteraceae;
+			self::$sumBoraginaceae_mineralized += $this->Boraginaceae_mineralized;
+			self::$sumBoraginaceae_burnt       += $this->Boraginaceae_burnt;
+			self::$sumBrassicaceae             += $this->Brassicaceae;
+			self::$sumCaryophyllaceae          += $this->Caryophyllaceae;
+			self::$sumChenopodiaceae           += $this->Chenopodiaceae;
+			self::$sumCyperaceae               += $this->Cyperaceae;
+			self::$sumDipsacaceae              += $this->Dipsacaceae;
+			self::$sumFabaceae                 += $this->Fabaceae;
+			self::$sumLamiaceae                += $this->Lamiaceae;
+			self::$sumMalvaceae                += $this->Malvaceae;
+			self::$sumPapaveraceae             += $this->Papaveraceae;
+			self::$sumPoaceae                  += $this->Poaceae;
+			self::$sumPoaceae_Frags            += $this->Poaceae_Frags;
+			self::$sumPolygonaceae             += $this->Polygonaceae;
+			self::$sumPortulaceae              += $this->Portulaceae;
+			self::$sumRubiaceae                += $this->Rubiaceae;
+			self::$sumScrophulariaceae         += $this->Scrophulariaceae;
+			self::$sumSolanaceae               += $this->Solanaceae;
+		}
+	}
+
+
 	// PROPERITES
+	public $Mesh;
+	
 	public $Amaranthaceae;
 	public $Apiaceae;
 	public $Asteraceae;
@@ -53,6 +69,7 @@ class Families extends Model {
 	public $Solanaceae;
 
 	// Sums
+	public static $sumMesh = 0.0;
 	public static $sumAmaranthaceae            = 0;
 	public static $sumApiaceae                 = 0;
 	public static $sumAsteraceae               = 0;

@@ -6,11 +6,11 @@
 
 <h1>HF ID: <?php echo $HFID; ?></h1>
 
-<h2>LabFlots</h2>
+<h2>LabLFs</h2>
 <ul>
-	<?php foreach ($LabFlots as $LabFlot) { 
-		$id = $LabFlot->LabFlot;
-		echo "<li>".$LabFlot->labFlotLink()."</li>";
+	<?php foreach ($LabLFs as $LabLF) { 
+		$id = $LabLF->LabLF;
+		echo "<li>".$LabLF->labFlotLink()."</li>";
 	} ?>
 </ul>
 
@@ -18,12 +18,6 @@
 <table class="sortable tablesorter">
 	<thead>
 		<tr>
-			<th>Square</th>
-			<th>Locus</th>
-			<th>SG</th>
-			<th>Volume</th>
-			<th>Field</th>
-			<th>Bagnum</th>
 			<th>Material</th>
 			<th>Type</th>
 			<th>Part</th>
@@ -46,12 +40,6 @@
 	foreach ($HFs as $HF) {
 		$vars = get_object_vars($HF);
 		echo "<tr>";
-		echo "<td>".$HF->Square."</td>";
-		echo "<td>".$HF->Locus."</td>";
-		echo "<td>".$HF->SG."</td>";
-		echo "<td>".$HF->Volume."</td>";
-		echo "<td>".$HF->Field."</td>";
-		echo "<td>".$HF->Bagnum."</td>";
 		echo "<td>".$HF->Material."</td>";
 		echo "<td>".$HF->Type."</td>";
 		echo "<td>".$HF->Part."</td>";
@@ -77,12 +65,6 @@
 		<tr><th colspan="23">Add Another</th></tr>
 		<tr><?php echo $this->tag->form('HF/save/'); ?>
 			<?php echo $this->tag->hiddenField(array("HF", "value" => $HFID)); ?>
-			<td><?php echo $this->tag->textField("Square"); ?></td>
-			<td><?php echo $this->tag->textField("Locus"); ?></td>
-			<td><?php echo $this->tag->textField("SG"); ?></td>
-			<td><?php echo $this->tag->textField("Volume"); ?></td>
-			<td><?php echo $this->tag->textField("Field"); ?></td>
-			<td><?php echo $this->tag->textField("Bagnum"); ?></td>
 			<td><?php echo $this->tag->textField("Material"); ?></td>
 			<td><?php echo $this->tag->textField("Type"); ?></td>
 			<td><?php echo $this->tag->textField("Part"); ?></td>
@@ -100,7 +82,6 @@
 			<td><?php echo $this->tag->textField("CT_4"); ?></td>
 			<td><?php echo $this->tag->textField("WT_4"); ?></td>
 			<td><?php echo $this->tag->submitButton("Add"); ?></td>
-
 		<?php echo $this->tag->endForm(); ?></tr>
 	</tfoot>
 
