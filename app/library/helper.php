@@ -57,6 +57,7 @@
 			echo "<td>0</td>";
 		}
 	}
+
 	/*
 	* MESH_TABLE_HEADER
 	* print the mesh header
@@ -78,6 +79,44 @@
 		echo "</tr>";
 		echo "</thead>";
 
+	}
+
+	function meshTableFooter($LabLF, $type)
+	{
+		echo "<tfoot>";
+		echo "<th></th>";
+		echo "<td colspan='3'>";
+		echo Phalcon\Tag::linkTo("$type/edit/$LabLF", "Edit");
+		echo "</td>";
+		echo "<th></th>";
+		echo "</tfoot>";
+	}
+
+	function meshForm($data, $value)
+	{
+		echo "<tr>";
+		echo "<th>$value</th>";
+		if (count($data) > 0)
+		{
+			foreach ($data as $dataPoint) {
+				$cleanedMesh = pointToDash($dataPoint->Mesh);
+				$name = "$value$cleanedMesh";
+	 			Phalcon\Tag::setDefault($name, $dataPoint->$value);
+				echo "<td>".Phalcon\Tag::textField($name)."</td>";
+			}
+		}
+		else {
+			echo "<td>0</td>";
+			echo "<td>0</td>";
+			echo "<td>0</td>";
+			echo "<td>0</td>";
+		}
+	}
+
+	// replace a point with a dash
+	function pointToDash($ori)
+	{
+		return preg_replace("/\./", "_", $ori);
 	}
 
 ?>

@@ -1,0 +1,39 @@
+<h1>
+	Lab LF ID: <?php echo $FlotData->labFlotLink(); ?>
+	<br>
+	Edit Domesticate Fragments
+</h1>
+
+<?php echo $this->tag->form('DomesticateFrags/update/'); ?>
+	<?php echo $this->tag->hiddenField(array("LabLF", "value" => $LabLF)); ?>
+	<table>
+		<thead>
+			<tr>
+				<th></th><th colspan='3'>Meshes</th>
+			</tr>
+			<tr>
+				<th></th>
+				<?php foreach ($DomFrags as $value) {
+					echo "<th>".$value->Mesh."</th>";
+				} ?>
+			</tr>
+		</thead>
+		<?php
+			meshForm($DomFrags, "Cereal_frag_CT");
+			meshForm($DomFrags, "Fabaceae_frags");
+			meshForm($DomFrags, "Hordeum_frags");
+			meshForm($DomFrags, "Nutshell_frag");
+			meshForm($DomFrags, "Olea_sp_shell_frag");
+			meshForm($DomFrags, "Pisum_sativum_frags");
+			meshForm($DomFrags, "Pisum_sativum_frags_wt");
+			meshForm($DomFrags, "Pisum_sativum_halves");
+			meshForm($DomFrags, "Pisum_sativum_halves_wt");
+			meshForm($DomFrags, "Pisum_sativum_whole_distort");
+			meshForm($DomFrags, "Pisum_sativum_whole_distort_wt");
+			meshForm($DomFrags, "Triticum_sp_apex_embryo");
+			meshForm($DomFrags, "Triticum_sp_halves");
+			meshForm($DomFrags, "Vitis_vinifera_frag");
+		?>
+	</table>
+	<?php echo $this->tag->submitButton("Update"); ?>
+<?php echo $this->tag->endForm(); ?>

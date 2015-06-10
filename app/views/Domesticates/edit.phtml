@@ -1,0 +1,56 @@
+<h1>
+	Lab LF ID: <?php echo $FlotData->labFlotLink(); ?>
+	<br>
+	Edit Domesticates
+</h1>
+
+<?php echo $this->tag->form('Domesticates/update/'); ?>
+	<?php echo $this->tag->hiddenField(array("LabLF", "value" => $LabLF)); ?>
+	<table>
+		<thead>
+			<tr>
+				<th></th><th colspan='3'>Meshes</th>
+			</tr>
+			<tr>
+				<th></th>
+				<?php foreach ($Doms as $value) {
+					echo "<th>".$value->Mesh."</th>";
+				} ?>
+			</tr>
+		</thead>
+		<?php
+			meshForm($Doms, "Cicer_arietinum");
+			meshForm($Doms, "Coriandrum_sativum");
+			meshForm($Doms, "Ficus_carica");
+			meshForm($Doms, "Hordeum_distichon");
+			meshForm($Doms, "Hordeum_sp");
+			meshForm($Doms, "Hordeum_vulgare");
+			meshForm($Doms, "Indeterminate_Cereal");
+			meshForm($Doms, "Lathyrus_sativa");
+			meshForm($Doms, "Lens_culinaris");
+			meshForm($Doms, "Olea_sp");
+			meshForm($Doms, "Pisum_sativum_ct");
+			meshForm($Doms, "Prunus_sp_cf_cerasifera");
+			meshForm($Doms, "Punica_granatum");
+			meshForm($Doms, "Secale_cereale");
+			meshForm($Doms, "Sorghum_cf_bicolor");
+			meshForm($Doms, "Triticum_aestivum_durum");
+			meshForm($Doms, "Triticum_dicoccum");
+			meshForm($Doms, "Triticum_monococcum");
+			meshForm($Doms, "Triticum_mono_di");
+			meshForm($Doms, "Triticum_sp");
+			meshForm($Doms, "Triticum_spelta");
+			meshForm($Doms, "Vicia_ervilia");
+			meshForm($Doms, "Vicia_faba");
+			meshForm($Doms, "Vicia_sp");
+			meshForm($Doms, "Vitis_vinifera");
+			meshForm($Doms, "Olea_sp_shell_frag_wt");
+			meshForm($Doms, "Pisum_sativum_wt");
+			meshForm($Doms, "Olea_sp_wt");
+			meshForm($Doms, "Vitis_sp_pedicel");
+			meshForm($Doms, "Vitis_vinifera_endocarp");
+			meshForm($Doms, "Vitis_vinifera_endocarp_wt");
+		?>
+	</table>
+	<?php echo $this->tag->submitButton("Update"); ?>
+<?php echo $this->tag->endForm(); ?>

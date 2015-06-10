@@ -1,0 +1,34 @@
+<h1>
+	Lab LF ID: <?php echo $FlotData->labFlotLink(); ?>
+	<br>
+	Edit Other Remains
+</h1>
+
+<?php echo $this->tag->form('OtherRemains/update/'); ?>
+	<?php echo $this->tag->hiddenField(array("LabLF", "value" => $LabLF)); ?>
+	<table>
+		<thead>
+			<tr>
+				<th></th><th colspan='3'>Meshes</th>
+			</tr>
+			<tr>
+				<th></th>
+				<?php foreach ($Others as $value) {
+					echo "<th>".$value->Mesh."</th>";
+				} ?>
+			</tr>
+		</thead>
+		<?php
+			meshForm($Others, "Bone");
+			meshForm($Others, "Carbonized_insect");
+			meshForm($Others, "Dung");
+			meshForm($Others, "Eggshell");
+			meshForm($Others, "Fish_Scale");
+			meshForm($Others, "Fish_Vertebra");
+			meshForm($Others, "Insect_Pupae");
+			meshForm($Others, "Shell");
+			meshForm($Others, "Shell_Burnt");
+		?>
+	</table>
+	<?php echo $this->tag->submitButton("Update"); ?>
+<?php echo $this->tag->endForm(); ?>

@@ -33,15 +33,9 @@ class HFController extends Controller
 	{
 		if ($this->request->isPost()) {
 			$hf = new HF();
-			$hf->HF       = $this->request->getPost("HF");
-			$hf->Square   = $this->request->getPost("Square");
-			$hf->Locus    = $this->request->getPost("Locus");
-			$hf->SG       = $this->request->getPost("SG");
-			$hf->Volume   = $this->request->getPost("Volume");
-			$hf->Field    = $this->request->getPost("Field");
-			$hf->Bagnum   = $this->request->getPost("Bagnum");
+			$hf->HF       = $this->request->getPost("HF");	
 			$hf->Material = $this->request->getPost("Material");
-
+			
 			$hf->Type = $this->request->getPost("Type");
 			$hf->Part = $this->request->getPost("Part");
 			$hf->Spec = $this->request->getPost("Spec");
@@ -61,12 +55,8 @@ class HFController extends Controller
 			
 			$hf->CT_4 = $this->request->getPost("CT_4");
 			$hf->WT_4 = $this->request->getPost("WT_4");
-
-			/*
-			if ($hf->save()) {
-
-			}
-			*/
+			
+			$hf->save();
 		}
 
 		$this->response->redirect("HF/show/$hf->HF");

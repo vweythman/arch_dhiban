@@ -1,0 +1,107 @@
+<h1>
+	Lab LF ID: <?php echo $FlotData->labFlotLink(); ?>
+	<br>
+	Edit Weeds and Wilds
+</h1>
+
+<?php echo $this->tag->form('WeedsWilds/update/'); ?>
+	<?php echo $this->tag->hiddenField(array("LabLF", "value" => $LabLF)); ?>
+	<table>
+		<thead>
+			<tr>
+				<th></th><th colspan='3'>Meshes</th>
+			</tr>
+			<tr>
+				<th></th>
+				<?php foreach ($WeedsWilds as $value) {
+					echo "<th>".$value->Mesh."</th>";
+				} ?>
+			</tr>
+		</thead>
+		<?php
+			MeshForm($WeedsWilds, "Adonis");
+			MeshForm($WeedsWilds, "Agrostemma");
+			MeshForm($WeedsWilds, "Aizoon");
+			MeshForm($WeedsWilds, "Ajuga");
+			MeshForm($WeedsWilds, "Amaranthus");
+			MeshForm($WeedsWilds, "Androsace_maxima");
+			MeshForm($WeedsWilds, "Anthemis");
+			MeshForm($WeedsWilds, "Arnebia");
+			MeshForm($WeedsWilds, "Artemisia");
+			MeshForm($WeedsWilds, "Asparagus");
+			MeshForm($WeedsWilds, "Asphodelus");
+			MeshForm($WeedsWilds, "Astragalus");
+			MeshForm($WeedsWilds, "Atriplex");
+			MeshForm($WeedsWilds, "Avena");
+			MeshForm($WeedsWilds, "Bellevalia");
+			MeshForm($WeedsWilds, "Brassica");
+			MeshForm($WeedsWilds, "Bromus");
+			MeshForm($WeedsWilds, "Bupleurum");
+			MeshForm($WeedsWilds, "Calendula");
+			MeshForm($WeedsWilds, "Camelina");
+			MeshForm($WeedsWilds, "Carex");
+			MeshForm($WeedsWilds, "Carex_Scirpus");
+			MeshForm($WeedsWilds, "Centaurea");
+			MeshForm($WeedsWilds, "Cephalaria_syriaca");
+			MeshForm($WeedsWilds, "Cerastium");
+			MeshForm($WeedsWilds, "cf_Asparagus");
+			MeshForm($WeedsWilds, "cf_Berberis");
+			MeshForm($WeedsWilds, "cf_Camelina");
+			MeshForm($WeedsWilds, "cf_Setaria");
+			MeshForm($WeedsWilds, "Chenopodium_album");
+			MeshForm($WeedsWilds, "Convolvulus");
+			MeshForm($WeedsWilds, "Coronilla");
+			MeshForm($WeedsWilds, "Eleocharis");
+			MeshForm($WeedsWilds, "Eragrostis");
+			MeshForm($WeedsWilds, "Eremo_Agropyron");
+			MeshForm($WeedsWilds, "Erodium");
+			MeshForm($WeedsWilds, "Erodium_cicutarium_awn");
+			MeshForm($WeedsWilds, "Euphorbia");
+			MeshForm($WeedsWilds, "Fumaria");
+			MeshForm($WeedsWilds, "Galium");
+			MeshForm($WeedsWilds, "Glaucium");
+			MeshForm($WeedsWilds, "Heliotropium");
+			MeshForm($WeedsWilds, "Hippocrepis");
+			MeshForm($WeedsWilds, "Hordeum_murinum_boeticum");
+			MeshForm($WeedsWilds, "Hyoscyamus");
+			MeshForm($WeedsWilds, "Lavatera");
+			MeshForm($WeedsWilds, "Lolium");
+			MeshForm($WeedsWilds, "Malva");
+			MeshForm($WeedsWilds, "Medicago");
+			MeshForm($WeedsWilds, "Medicago_type");
+			MeshForm($WeedsWilds, "Melilotus_Trifolium");
+			MeshForm($WeedsWilds, "Melilotus_Trifolium_punctate");
+			MeshForm($WeedsWilds, "Onopordum_Eleusine");
+			MeshForm($WeedsWilds, "Ornithogalum");
+			MeshForm($WeedsWilds, "Ornithogalum_type");
+			MeshForm($WeedsWilds, "Papaver");
+			MeshForm($WeedsWilds, "Peganum_harmala");
+			MeshForm($WeedsWilds, "Phalaris");
+			MeshForm($WeedsWilds, "Phleum");
+			MeshForm($WeedsWilds, "Plantago");
+			MeshForm($WeedsWilds, "Polygonum");
+			MeshForm($WeedsWilds, "Portulaca");
+			MeshForm($WeedsWilds, "Rumex");
+			MeshForm($WeedsWilds, "Salsola");
+			MeshForm($WeedsWilds, "Schinus");
+			MeshForm($WeedsWilds, "Scirpus");
+			MeshForm($WeedsWilds, "Scorpiurus");
+			MeshForm($WeedsWilds, "Silene");
+			MeshForm($WeedsWilds, "Stellaria");
+			MeshForm($WeedsWilds, "Stipa");
+			MeshForm($WeedsWilds, "Suaeda");
+			MeshForm($WeedsWilds, "Teucrium");
+			MeshForm($WeedsWilds, "Thymelaea");
+			MeshForm($WeedsWilds, "Trifolium_repens");
+			MeshForm($WeedsWilds, "Trifolium_cf_repens");
+			MeshForm($WeedsWilds, "Trigonella");
+			MeshForm($WeedsWilds, "Trigonella_astroites");
+			MeshForm($WeedsWilds, "Trigonella_coele_syriaca");
+			MeshForm($WeedsWilds, "Vaccaria");
+			MeshForm($WeedsWilds, "Verbascum");
+			MeshForm($WeedsWilds, "Veronica");
+			MeshForm($WeedsWilds, "Ziziphora");
+		?>
+	</table>
+	<?php echo $this->tag->submitButton("Update"); ?>
+<?php echo $this->tag->endForm(); ?>
