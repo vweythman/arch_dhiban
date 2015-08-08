@@ -1,0 +1,53 @@
+<h1>Edit HF</h1>
+<?php echo $this->tag->form('HF/update/'); ?>
+
+	<?php echo $this->tag->hiddenField(array("HF", "value" => $HFID)); ?>
+	<table>
+		<thead>
+			<tr>
+				<th>Material</th>
+				<th>Type</th>
+				<th>Part</th>
+				<th>Spec</th>
+				<th>Density</th>
+				<th>Count Total</th>
+				<th>Weight Dens</th>
+				<th>Weight Total</th>
+				<th>CT.25</th>
+				<th>WT.25</th>
+				<th>CT.12.5</th>
+				<th>WT.12.5</th>
+				<th>CT.8</th>
+				<th>WT.8</th>
+				<th>CT.4</th>
+				<th>WT.4</th>
+		</thead>
+		<tbody>
+		<?php
+			foreach ($data as $HF) {
+				echo "<tr>";
+				echo "<td>".hf_field($HF, "Material")."</td>";
+				echo "<td>".hf_field($HF, "Type")."</td>";
+				echo "<td>".hf_field($HF, "Part")."</td>";
+				echo "<td>".hf_field($HF, "Spec")."</td>";
+				echo "<td>".hf_field($HF, "Density")."</td>";
+				echo "<td>".hf_field($HF, "CountTotal")."</td>";
+				echo "<td>".hf_field($HF, "WeightDens")."</td>";
+				echo "<td>".hf_field($HF, "WeightTotal")."</td>";
+				echo "<td>".hf_field($HF, "CT_25")."</td>";
+				echo "<td>".hf_field($HF, "WT_25")."</td>";
+				echo "<td>".hf_field($HF, "CT_12_5")."</td>";
+				echo "<td>".hf_field($HF, "WT_12_5")."</td>";
+				echo "<td>".hf_field($HF, "CT_8")."</td>";
+				echo "<td>".hf_field($HF, "WT_8")."</td>";
+				echo "<td>".hf_field($HF, "CT_4")."</td>";
+				echo "<td>".hf_field($HF, "WT_4")."</td>";
+				echo "</tr>";
+			}
+		?>
+		</tbody>
+		<tfoot>
+			<tr><td colspan="16"><?php echo $this->tag->submitButton("Update"); ?></td></tr>
+		</tfoot>
+	</table>
+<?php echo $this->tag->endForm(); ?>

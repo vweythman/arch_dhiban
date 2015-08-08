@@ -3,12 +3,10 @@
 use Phalcon\Mvc\Controller;
 use Phalcon\HTTP\RequestInterface;
 
-
 class HFController extends Controller
 {
 	public function indexAction()
 	{
-
 		$this->response->redirect("sample/");
 	}
 
@@ -28,7 +26,38 @@ class HFController extends Controller
 		$this->view->setVar("LabLFs", $LabLFs);
 	}
 
+	public function editAction($HFID)
+	{
+		$HFData = HF::find("HF = '$HFID'");
+		$this->view->setVar("HFID", $HFID);
+		$this->view->setVar("data", $HFData);
+	}
+
 	// POST
+
+	public function updateAction()
+	{
+		$changeables = array("Material", "Type", "Part", "Spec", "Density", "CountTotal", "WeightDens", "WeightTotal", "CT_25", "WT_25", "CT_12_5", "WT_12_5", "CT_8", "WT_8", "CT_4", "WT_4");
+
+		if ($this->request->isPost()) {
+			$HFID = $this->request->getPost("HF");
+			$HFData = HF::find("HF = '$HFID'");
+			echo $HFID;
+
+			foreach ($HFData as $HF) {
+				$start  = "HF_$HF->id";
+				echo "<p>$start</p>";
+				foreach ($changeables as $value) {
+					$name = $start."_$value";
+					$nVal = $this->request->getPost($name);
+					$HF->$value = $nVal;
+				}
+				$HF->save();
+			}
+			$this->response->redirect("HF/show/$HFID");
+		}
+	}
+
 	public function saveAction()
 	{
 		if ($this->request->isPost()) {
@@ -57,10 +86,10 @@ class HFController extends Controller
 			$hf->WT_4 = $this->request->getPost("WT_4");
 			
 			$hf->save();
+			$this->response->redirect("HF/show/$hf->HF");
 		}
 
-		$this->response->redirect("HF/show/$hf->HF");
-
+		$this->response->redirect("sample");
 	}
 }
 

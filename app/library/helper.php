@@ -120,4 +120,12 @@
 		return preg_replace("/\./", "_", $ori);
 	}
 
+	function hf_field($hf, $value)
+	{
+		$start = "HF_$hf->id";
+		$name  = $start."_$value";
+		Phalcon\Tag::setDefault($name, $hf->$value);
+		return Phalcon\Tag::textField($name);
+	}
+
 ?>

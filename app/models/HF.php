@@ -32,6 +32,11 @@ class HF extends Model
 
 	}
 
+	public function beforeSave()
+	{
+		
+	}
+
 	// PROPERTIES
 	public $HF;
 	public $Square;
