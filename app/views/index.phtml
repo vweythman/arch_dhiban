@@ -2,10 +2,16 @@
 <html>
 <head>
 	<title>Dhiban Data</title>
-	<script src='/arch/public/js/jquery.min.js'></script>
-	<script src='/arch/public/js/jquery.tablesorter.min.js'></script>
-	<script src='/arch/public/js/jquery.ui.tabs.min.js'></script>
-	<link rel="stylesheet" type="text/css" href="/arch/public/css/style.css">
+	<?php 
+		$this->assets->addCss('css/style.css');
+		$this->assets
+			->addJs('js/jquery.min.js')
+			->addJs('js/jquery.tablesorter.min.js')
+			->addJs('js/jquery.ui.tabs.min.js');
+	?>
+	<?php $this->assets->outputCss() ?>
+	<?php $this->assets->outputJs() ?>
+
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script type="text/javascript">

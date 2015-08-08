@@ -21,7 +21,7 @@ $di->set('dispatcher', function() use ($di) {
 
 // setting up the assets manager
 $di->set('assets', function() {
-	$assets = new AssetsManagerr();
+	$assets = new AssetsManager();
 	return $assets;
 });
 

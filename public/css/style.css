@@ -36,7 +36,6 @@ tr:nth-child(even) {
 	display: block;
 	padding: 10px;
 	background:  #222;
-	border: 1px solid #eee;
 }
 .ui-tabs-anchor {
 	color: #FFF;
@@ -49,5 +48,8 @@ tr:nth-child(even) {
 }
 .ui-tabs-active { 
 	font-weight: bolder;
-	background: blue;
+	background: #eee;
+}
+.ui-tabs-active a {
+	color: blue;
 }
