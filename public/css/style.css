@@ -1,5 +1,5 @@
 body {
-	font: 14px Arial;
+	font: 13px Arial;
 }
 table {
 	border-collapse: collapse;
@@ -9,11 +9,20 @@ thead th {
 	background: hsl(0, 0%, 90%);
 }
 td {
-	padding: 5px 10px;
+	text-align: center;
+	padding: 5px;
+	max-width: 70px;
 }
+td input {
+	width: calc(100% - 10px);
+}
+
 
 tr:nth-child(even) {
 	background: hsl(0, 0%, 95%);
+}
+tr:hover {
+	background: hsl(0, 0%, 80%);
 }
 
 .sortable .headerSortUp:after {
@@ -52,4 +61,6 @@ tr:nth-child(even) {
 }
 .ui-tabs-active a {
 	color: blue;
+}
+input {
 }

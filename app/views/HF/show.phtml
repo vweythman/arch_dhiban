@@ -25,7 +25,7 @@
 				<th>Spec</th>
 				<th>Density</th>
 				<th>Count Total</th>
-				<th>Weight Dens</th>
+				<th>Weight Density</th>
 				<th>Weight Total</th>
 				<th>CT.25</th>
 				<th>WT.25</th>
@@ -35,35 +35,37 @@
 				<th>WT.8</th>
 				<th>CT.4</th>
 				<th>WT.4</th>
+				<th>Editing</th>
 		</thead>
 		<tbody>
 		<?php 
 			foreach ($HFs as $HF) {
 				$vars = get_object_vars($HF);
 				echo "<tr>";
-				echo "<td>".$HF->Material."</td>";
-				echo "<td>".$HF->Type."</td>";
-				echo "<td>".$HF->Part."</td>";
-				echo "<td>".$HF->Spec."</td>";
-				echo "<td>".$HF->Density."</td>";
-				echo "<td>".$HF->CountTotal."</td>";
-				echo "<td>".$HF->WeightDens."</td>";
-				echo "<td>".$HF->WeightTotal."</td>";
-				echo "<td>".$HF->CT_25."</td>";
-				echo "<td>".$HF->WT_25."</td>";
-				echo "<td>".$HF->CT_12_5."</td>";
-				echo "<td>".$HF->WT_12_5."</td>";
-				echo "<td>".$HF->CT_8."</td>";
-				echo "<td>".$HF->WT_8."</td>";
-				echo "<td>".$HF->CT_4."</td>";
-				echo "<td>".$HF->WT_4."</td>";
+				echo "<th>".$HF->Material."</th>";
+				echo "<td data-label='Type'>".$HF->Type."</td>";
+				echo "<td data-label='Part'>".$HF->Part."</td>";
+				echo "<td data-label='Spec'>".$HF->Spec."</td>";
+				echo "<td data-label='Density'>".$HF->Density."</td>";
+				echo "<td data-label='Count Total'>".$HF->CountTotal."</td>";
+				echo "<td data-label='Weight Density'>".$HF->WeightDens."</td>";
+				echo "<td data-label='Weight Total'>".$HF->WeightTotal."</td>";
+				echo "<td data-label='CT.25'>".$HF->CT_25."</td>";
+				echo "<td data-label='WT.25'>".$HF->WT_25."</td>";
+				echo "<td data-label='CT.12.5'>".$HF->CT_12_5."</td>";
+				echo "<td data-label='WT.12.5'>".$HF->WT_12_5."</td>";
+				echo "<td data-label='CT.8'>".$HF->CT_8."</td>";
+				echo "<td data-label='WT.8'>".$HF->WT_8."</td>";
+				echo "<td data-label='CT.4'>".$HF->CT_4."</td>";
+				echo "<td data-label='WT.4'>".$HF->WT_4."</td>";
+				echo "<td></td>";
 				echo "</tr>";
 			}
 		?>
 		</tbody>
 		<tfoot>
-			<tr><td colspan="23"><?php echo $this->tag->linkTo("HF/edit/$HFID", "Edit All"); ?></td></tr>
-			<tr><th colspan="23">Add Another</th></tr>
+			<tr><td colspan="17"><?php echo $this->tag->linkTo("HF/edit/$HFID", "Edit All"); ?></td></tr>
+			<tr><th colspan="17">Add Another</th></tr>
 				<tr>
 					<td><?php echo $this->tag->textField("Material"); ?></td>
 					<td><?php echo $this->tag->textField("Type"); ?></td>
