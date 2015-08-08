@@ -64,21 +64,22 @@
 	*/
 	function meshTableHeader($data)
 	{
-		echo "<thead>";
-		echo "<tr>";
-		echo "<th></th>";
-		echo "<th colspan='3'>Mesh</th>";
-		echo "<th></th>";
-		echo "</tr>";
-		echo "<tr>";
-		echo "<th>&nbsp;</th>";
-		foreach ($data as $dataPoint) {
-			echo "<th>".$dataPoint->Mesh."</th>";
-		}
-		echo "<th>Total</th>";
-		echo "</tr>";
-		echo "</thead>";
+		$points = (count($data) != 3) ? array(0.5, 1, 2) : array($data[0]->Mesh, $data[1]->Mesh, $data[2]->Mesh);
 
+		echo "<thead>";
+
+			echo "<tr> <th></th> <th colspan='3'>Mesh</th> <th></th> </tr>";
+
+			echo "<tr>";
+				echo "<th>&nbsp;</th>";
+				foreach ($points as $point) { 
+					echo "<th>$point</th>";
+				}
+				
+				echo "<th>Total</th>";
+			echo "</tr>";
+		
+		echo "</thead>";
 	}
 
 	function meshTableFooter($LabLF, $type)

@@ -7,17 +7,7 @@
 <?php echo $this->tag->form('FamiliesRemains/update/'); ?>
 	<?php echo $this->tag->hiddenField(array("LabLF", "value" => $LabLF)); ?>
 	<table>
-		<thead>
-			<tr>
-				<th></th><th colspan='3'>Meshes</th>
-			</tr>
-			<tr>
-				<th></th>
-				<?php foreach ($Fams as $value) {
-					echo "<th>".$value->Mesh."</th>";
-				} ?>
-			</tr>
-		</thead>
+		<?php meshTableHeader($Fams); ?>
 		<?php
 			meshForm($Fams, "Amaranthaceae");
 			meshForm($Fams, "Apiaceae");
