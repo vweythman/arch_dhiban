@@ -32,6 +32,14 @@ class UnknownsController extends Controller {
 					)
 				);
 
+				if ($dataset == null)
+				{
+					$dataset = new Unknowns();
+					$dataset->Mesh   = $mesh;
+					$dataset->LabLF  = $LabLF;
+					$dataset->meshid = "$LabLF".($mesh / 10); 
+				}
+
 				$cleanMesh = pointToDash($mesh);
 				$dataset->Clinker                      = $this->request->getPost("Clinker$cleanMesh");
 				$dataset->Indeterminate_rachis         = $this->request->getPost("Indeterminate_rachis$cleanMesh");

@@ -31,7 +31,16 @@ class WeedsWildsController extends Controller
 					)
 				);
 
+				if ($dataset == null)
+				{
+					$dataset = new WeedsWilds();
+					$dataset->Mesh   = $mesh;
+					$dataset->LabLF  = $LabLF;
+					$dataset->meshid = "$LabLF".($mesh / 10); 
+				}
+				
 				$cleanMesh = pointToDash($mesh);
+
 				$dataset->Adonis                       = $this->request->getPost("Adonis$cleanMesh");
 				$dataset->Agrostemma                   = $this->request->getPost("Agrostemma$cleanMesh");
 				$dataset->Aizoon                       = $this->request->getPost("Aizoon$cleanMesh");

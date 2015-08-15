@@ -68,10 +68,9 @@
 
 		echo "<thead>";
 
-			echo "<tr> <th></th> <th colspan='3'>Mesh</th> <th></th> </tr>";
+			echo "<tr> <th rowspan='2'>Material</th> <th colspan='3'>Mesh</th> <th></th> </tr>";
 
 			echo "<tr>";
-				echo "<th>&nbsp;</th>";
 				foreach ($points as $point) { 
 					echo "<th>$point</th>";
 				}
@@ -85,33 +84,34 @@
 	function meshTableFooter($LabLF, $type)
 	{
 		echo "<tfoot>";
-		echo "<th></th>";
-		echo "<td colspan='3'>";
-		echo Phalcon\Tag::linkTo("$type/edit/$LabLF", "Edit");
-		echo "</td>";
-		echo "<th></th>";
+		echo "<tr>";
+		echo "<td colspan='5'>".Phalcon\Tag::linkTo("$type/edit/$LabLF", "Edit")."</td>";
+		echo "</tr>";
 		echo "</tfoot>";
 	}
 
 	function meshForm($data, $value)
 	{
+		$points = (count($data) != 3) ? array(0.5, 1, 2) : array($data[0]->Mesh, $data[1]->Mesh, $data[2]->Mesh);
+		$count  = 0;
+
 		echo "<tr>";
 		echo "<th>$value</th>";
-		if (count($data) > 0)
-		{
-			foreach ($data as $dataPoint) {
-				$cleanedMesh = pointToDash($dataPoint->Mesh);
-				$name = "$value$cleanedMesh";
-	 			Phalcon\Tag::setDefault($name, $dataPoint->$value);
-				echo "<td>".Phalcon\Tag::textField($name)."</td>";
+
+		foreach ($points as $i => $point) {
+			$clean = pointToDash($point);
+			$name  = "$value$clean";
+
+			if (count($data) > 0)
+			{
+	 			Phalcon\Tag::setDefault($name, $data[$i]->$value);
+	 			$count += $data[$i]->$value;
 			}
+
+			echo "<td>".Phalcon\Tag::textField($name)."</td>";
 		}
-		else {
-			echo "<td>0</td>";
-			echo "<td>0</td>";
-			echo "<td>0</td>";
-			echo "<td>0</td>";
-		}
+		echo "<td>$count</td>";
+		echo "</tr>";
 	}
 
 	// replace a point with a dash

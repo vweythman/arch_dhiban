@@ -32,6 +32,14 @@ class FamiliesRemainsController extends Controller {
 					"for_update" => true
 					)
 				);
+				
+				if ($dataset == null)
+				{
+					$dataset = new FamiliesRemains();
+					$dataset->Mesh   = $mesh;
+					$dataset->LabLF  = $LabLF;
+					$dataset->meshid = "$LabLF".($mesh / 10); 
+				}
 
 				$cleanMesh = pointToDash($mesh);
 				

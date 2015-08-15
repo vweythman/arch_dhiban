@@ -32,6 +32,14 @@ class OtherRemainsController extends Controller {
 					"for_update" => true
 					)
 				);
+				
+				if ($dataset == null)
+				{
+					$dataset = new OtherRemains();
+					$dataset->Mesh   = $mesh;
+					$dataset->LabLF  = $LabLF;
+					$dataset->meshid = "$LabLF".($mesh / 10); 
+				}
 
 				$cleanMesh = pointToDash($mesh);
 				

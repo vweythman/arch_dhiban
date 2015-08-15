@@ -23,6 +23,7 @@ class DomesticatesController extends Controller {
 
 			foreach ($meshes as $mesh) {
 
+				
 				$dataset = Domesticates::findFirst(
 					array(
 					"LabLF = ?1 AND Mesh = ?2",
@@ -31,7 +32,16 @@ class DomesticatesController extends Controller {
 					)
 				);
 
+				if ($dataset == null)
+				{
+					$dataset = new Domesticates();
+					$dataset->Mesh   = $mesh;
+					$dataset->LabLF  = $LabLF;
+					$dataset->meshid = "$LabLF".($mesh / 10); 
+				}
+
 				$cleanMesh = pointToDash($mesh);
+
 				$dataset->Cicer_arietinum            = $this->request->getPost("Cicer_arietinum$cleanMesh");
 				$dataset->Coriandrum_sativum         = $this->request->getPost("Coriandrum_sativum$cleanMesh");
 				$dataset->Ficus_carica               = $this->request->getPost("Ficus_carica$cleanMesh");

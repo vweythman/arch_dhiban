@@ -31,7 +31,16 @@ class DomesticateFragsController extends Controller {
 					)
 				);
 
+				if ($dataset == null)
+				{
+					$dataset = new DomesticateFrags();
+					$dataset->Mesh   = $mesh;
+					$dataset->LabLF  = $LabLF;
+					$dataset->meshid = "$LabLF".($mesh / 10); 
+				}
+
 				$cleanMesh = pointToDash($mesh);
+				
 				$dataset->Cereal_frag_CT                 = $this->request->getPost("Cereal_frag_CT$cleanMesh");
 				$dataset->Fabaceae_frags                 = $this->request->getPost("Fabaceae_frags$cleanMesh");
 				$dataset->Hordeum_frags                  = $this->request->getPost("Hordeum_frags$cleanMesh");

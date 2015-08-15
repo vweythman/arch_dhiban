@@ -34,7 +34,16 @@ class RachisRemainsController extends Controller {
 					)
 				);
 
+				if ($dataset == null)
+				{
+					$dataset = new RachisRemains();
+					$dataset->Mesh   = $mesh;
+					$dataset->LabLF  = $LabLF;
+					$dataset->meshid = "$LabLF".($mesh / 10); 
+				}
+
 				$cleanMesh = pointToDash($mesh);
+				
 				$dataset->Poaceae_culm                             = $this->request->getPost("Poaceae_culm$cleanMesh");
 				$dataset->Poaceae_root                             = $this->request->getPost("Poaceae_root$cleanMesh");
 				$dataset->Hordeum_internode                        = $this->request->getPost("Hordeum_internode$cleanMesh");
