@@ -21,6 +21,7 @@ class UnknownsController extends Controller {
 		{
 			$LabLF  = $this->request->getPost("LabLF");
 			$meshes = array(2, 1, 0.5);
+			$saves  = 0;
 
 			foreach ($meshes as $mesh) {
 
@@ -50,9 +51,15 @@ class UnknownsController extends Controller {
 				$dataset->Unknown_rachis_remains       = $this->request->getPost("Unknown_rachis_remains$cleanMesh");
 				$dataset->Unknown_non_Poaceae          = $this->request->getPost("Unknown_non_Poaceae$cleanMesh");
 
-				$dataset->save();
+				$saves += $dataset->save();
 			}
-			$this->response->redirect("unknowns/edit/$LabLF");
+
+			if ($saves == 3) {
+				$this->response->redirect("sample/show/$LabLF");
+			}
+			else {
+				$this->response->redirect("unknowns/edit/$LabLF");
+			}
 		}
 	}
 }

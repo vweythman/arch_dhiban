@@ -20,6 +20,7 @@ class DomesticateFragsController extends Controller {
 		{
 			$LabLF  = $this->request->getPost("LabLF");
 			$meshes = array(2, 1, 0.5);
+			$saves  = 0;
 
 			foreach ($meshes as $mesh) {
 
@@ -56,9 +57,15 @@ class DomesticateFragsController extends Controller {
 				$dataset->Triticum_sp_halves             = $this->request->getPost("Triticum_sp_halves$cleanMesh");
 				$dataset->Vitis_vinifera_frag            = $this->request->getPost("Vitis_vinifera_frag$cleanMesh");
 
-				$dataset->save();
+				$saves += $dataset->save();
 			}
-			$this->response->redirect("DomesticateFrags/edit/$LabLF");
+			
+			if ($saves == 3) {
+				$this->response->redirect("sample/show/$LabLF");
+			}
+			else {
+				$this->response->redirect("DomesticateFrags/edit/$LabLF");
+			}
 		}
 
 	}

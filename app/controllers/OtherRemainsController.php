@@ -22,6 +22,7 @@ class OtherRemainsController extends Controller {
 		{
 			$LabLF  = $this->request->getPost("LabLF");
 			$meshes = array(2, 1, 0.5);
+			$saves  = 0;
 
 			foreach ($meshes as $mesh) {
 
@@ -52,9 +53,16 @@ class OtherRemainsController extends Controller {
 				$dataset->Insect_Pupae      = $this->request->getPost("Insect_Pupae$cleanMesh");
 				$dataset->Shell             = $this->request->getPost("Shell$cleanMesh");
 				$dataset->Shell_Burnt       = $this->request->getPost("Shell_Burnt$cleanMesh");
-				$dataset->save();
+				
+				$saves += $dataset->save();
 			}
-			$this->response->redirect("OtherRemains/edit/$LabLF");
+			
+			if ($saves == 3) {
+				$this->response->redirect("sample/show/$LabLF");
+			}
+			else {
+				$this->response->redirect("OtherRemains/edit/$LabLF");
+			}
 		}
 
 	}

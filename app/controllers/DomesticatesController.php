@@ -20,10 +20,10 @@ class DomesticatesController extends Controller {
 		{
 			$LabLF  = $this->request->getPost("LabLF");
 			$meshes = array(2, 1, 0.5);
+			$saves  = 0;
 
 			foreach ($meshes as $mesh) {
 
-				
 				$dataset = Domesticates::findFirst(
 					array(
 					"LabLF = ?1 AND Mesh = ?2",
@@ -74,9 +74,16 @@ class DomesticatesController extends Controller {
 				$dataset->Vitis_vinifera_endocarp    = $this->request->getPost("Vitis_vinifera_endocarp$cleanMesh");
 				$dataset->Vitis_vinifera_endocarp_wt = $this->request->getPost("Vitis_vinifera_endocarp_wt$cleanMesh");
 
-				$dataset->save();
+				$saves += $dataset->save();
 			}
-			$this->response->redirect("Domesticates/edit/$LabLF");
+			
+			if ($saves == 3) {
+				$this->response->redirect("sample/show/$LabLF");
+			}
+			else {
+				$this->response->redirect("Domesticates/edit/$LabLF");
+			}
+
 		}
 
 	}

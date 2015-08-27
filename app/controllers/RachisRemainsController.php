@@ -23,6 +23,7 @@ class RachisRemainsController extends Controller {
 		{
 			$LabLF  = $this->request->getPost("LabLF");
 			$meshes = array(2, 1, 0.5);
+			$saves = 0;
 
 			foreach ($meshes as $mesh) {
 
@@ -59,10 +60,16 @@ class RachisRemainsController extends Controller {
 				$dataset->Triticum_node                            = $this->request->getPost("Triticum_node$cleanMesh");
 				$dataset->Triticum_rachis                          = $this->request->getPost("Triticum_rachis$cleanMesh");
 				$dataset->Wild_or_Weed_rachis                      = $this->request->getPost("Wild_or_Weed_rachis$cleanMesh");
-
-				$dataset->save();
+				
+				$saves += $dataset->save();
 			}
-			$this->response->redirect("RachisRemains/edit/$LabLF");
+			
+			if ($saves == 3) {
+				$this->response->redirect("sample/show/$LabLF");
+			}
+			else {
+				$this->response->redirect("RachisRemains/edit/$LabLF");	
+			}
 		}
 
 	}

@@ -22,6 +22,7 @@ class FamiliesRemainsController extends Controller {
 		{
 			$LabLF  = $this->request->getPost("LabLF");
 			$meshes = array(2, 1, 0.5);
+			$saves  = 0;
 
 			foreach ($meshes as $mesh) {
 
@@ -65,9 +66,15 @@ class FamiliesRemainsController extends Controller {
 				$dataset->Scrophulariaceae         = $this->request->getPost("Scrophulariaceae$cleanMesh");
 				$dataset->Solanaceae               = $this->request->getPost("Solanaceae$cleanMesh");
 
-				$dataset->save();
+				$saves += $dataset->save();
 			}
-			$this->response->redirect("FamiliesRemains/edit/$LabLF");
+			
+			if ($saves == 3) {
+				$this->response->redirect("sample/show/$LabLF");
+			}
+			else {
+				$this->response->redirect("FamiliesRemains/edit/$LabLF");
+			}
 		}
 
 	}

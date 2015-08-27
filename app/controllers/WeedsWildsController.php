@@ -20,6 +20,7 @@ class WeedsWildsController extends Controller
 		{
 			$LabLF  = $this->request->getPost("LabLF");
 			$meshes = array(2, 1, 0.5);
+			$saves  = 0;
 
 			foreach ($meshes as $mesh) {
 
@@ -124,9 +125,15 @@ class WeedsWildsController extends Controller
 				$dataset->Veronica                     = $this->request->getPost("Veronica$cleanMesh");
 				$dataset->Ziziphora                    = $this->request->getPost("Ziziphora$cleanMesh");
 
-				$dataset->save();
+				$saves += $dataset->save();
 			}
-			$this->response->redirect("WeedsWilds/edit/$LabLF");
+			
+			if ($saves == 3) {
+				$this->response->redirect("sample/show/$LabLF");
+			}
+			else {
+				$this->response->redirect("WeedsWilds/edit/$LabLF");
+			}
 		}
 	}
 }
