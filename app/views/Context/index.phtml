@@ -1,0 +1,45 @@
+<h1>Contexts</h1>
+
+<div id='tabs'>
+	<ul>
+	<?php foreach ($contexts as $key => $val) { ?>
+		<li><a href="#tab<?php echo $key; ?>"><?php echo $key; ?></a></li>
+	<?php } ?>
+	</ul>
+
+	<?php foreach ($contexts as $context => $units) { ?>
+
+		<div id="tab<?php echo $context; ?>" class='tab'>
+			<h2>Context: <?php echo $context ?></h2>
+			
+			<?php foreach ($units as $unit => $samples) { ?>
+				<h3>Unit: <?php echo $unit; ?></h3>
+
+				<table class="sortable tablesorter">
+					<thead>
+						<tr>
+							<th>Lab LF ID</th>
+							<th>LF ID</th>
+							<th>HF ID</th>
+							<th>Bag</th>
+							<th>Exc</th>
+							<th>C14</th>
+						</tr>
+					</thead>
+
+					<?php foreach ($samples as $sample) { ?>
+						<tr>
+							<th><?php echo $sample->labFlotLink() ?></th>
+							<td><?php echo $sample->LF; ?></td>
+							<td><?php echo $sample->HFLink(); ?></td>
+							<td><?php echo $sample->Bag; ?></td>
+							<td><?php echo $sample->Exc; ?></td>
+							<td><?php echo $sample->C14Link(); ?></td>
+						</tr>
+					<?php } ?>
+
+				</table>
+			<?php } ?>
+		</div>
+	<?php } ?>
+</div>

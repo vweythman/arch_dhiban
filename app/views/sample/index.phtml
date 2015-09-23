@@ -9,6 +9,7 @@
 			<th>Bag</th>
 			<th>Exc</th>
 			<th>Unit</th>
+			<th>C14</th>
 	</thead>
 	<tbody>
 		<?php 
@@ -16,11 +17,12 @@
 				$id = $sample->LabLF;
 				echo "<tr>";
 				echo "<th>".$sample->labFlotLink()."</th>";
-				echo "<td>".$sample->LabLF."</td>";
+				echo "<td>".$sample->LF."</td>";
 				echo "<td>".$sample->HFLink()."</td>";
 				echo "<td>".$sample->Bag."</td>";
 				echo "<td>".$sample->Exc."</td>";
-				echo "<td>".$sample->Unit.	"</td>";
+				echo "<td>".$sample->Unit."</td>";
+				echo "<td>".$sample->C14Link()."</td>";
 				echo "</tr>";
 			}
 		?>

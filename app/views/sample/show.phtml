@@ -9,6 +9,7 @@
 			<th>Bag</th>
 			<th>Exc</th>
 			<th>Unit</th>
+			<th>Radiocarbon</th>
 	</thead>
 	<tbody>
 		<?php 
@@ -20,6 +21,7 @@
 				echo "<td>".$flot->Bag."</td>";
 				echo "<td>".$flot->Exc."</td>";
 				echo "<td>".$flot->Unit."</td>";
+				echo "<td>".$flot->C14Link()."</td>";
 				echo "</tr>";
 			}
 		?>

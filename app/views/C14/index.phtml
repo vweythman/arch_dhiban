@@ -1,0 +1,23 @@
+<h1>Radiocarbon Data</h1>
+<table class="sortable tablesorter">
+	<thead>
+		<tr>
+			<th>DHBC14Num</th>
+			<th>LabLF</th>
+			<th>HF</th>
+			<th>Type</th>
+			<th>Calendar Lower</th>
+			<th>Calendar Upper</th>
+		</tr>
+	</thead>
+	<?php foreach($C14s as $C14) { ?>
+	<tr>
+		<th data-label="DHBC14Num"><?php echo $this->tag->linkTo("c14/show/$C14->DHBC14Num", $C14->DHBC14Num); ?></th>
+		<td><?php echo $C14->LFLink(); ?></td>
+		<td><?php echo $C14->HFLink(); ?></td>
+		<td><?php echo $C14->Type; ?></td>
+		<td><?php echo $C14->CalendarRange_2sd != "MODERN" ? $C14->LowerCal_2sd." CE" : "Modern"; ?></td>
+		<td><?php echo $C14->CalendarRange_2sd != "MODERN" ? $C14->UpperCal_2sd." CE" : "Modern"; ?></td>
+	</tr>
+	<?php } ?>
+</table>

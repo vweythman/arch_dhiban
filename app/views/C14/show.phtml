@@ -1,0 +1,30 @@
+<h1><?php echo $C14->DHBC14Num; ?></h1>
+<p><b>Type:</b> <?php echo $C14->Type; ?></p>
+<p><b>Calendar Range:</b> <?php echo $C14->CalendarRange_2sd;?></p>
+
+
+<ul>
+	<li>Context: <?php echo $C14->getContext(); ?></li>
+	<li>Unit:  <?php echo $C14->Unit; ?></li>
+	<li>Locus: <?php echo $C14->Locus; ?></li>
+</ul>
+
+<?php if ($C14->Flots != Null) { ?>
+	<table>
+		<thead>
+			<tr>
+				<th>LabLF</th>
+				<th>HF</th>
+			</tr>
+		</thead>
+		<tr>
+			<td><?php echo $C14->LFLink(); ?></td>
+			<td><?php echo $C14->HFLink(); ?></td>
+		</tr>
+	</table>
+<?php } ?>
+
+<footer>
+	<p><?php echo $this->tag->linkTo("c14", "Radiocarbon Dataset"); ?></p>
+</footer>
+

@@ -21,6 +21,8 @@ class Flots extends Model
 	{
 		// $internalID, $assocModelName, $idFromAssocModel
 		$this->hasOne('HF', 'HF', 'HF');
+		$this->hasOne("LabLF", "C14", "LabLF");
+		
 		$this->hasMany("LabLF", "Domesticates", "LabLF");
 		$this->hasMany("LabLF", "DomesticateFrags", "LabLF");
 		$this->hasMany("LabLF", "FamiliesRemains", "LabLF");
@@ -55,6 +57,12 @@ class Flots extends Model
 	public function HFLink() {
 		if ($this->HF != null) {
 			return Phalcon\Tag::linkTo("HF/show/$this->HF", $this->HF);
+		}
+	}
+
+	public function C14Link() {
+		if ($this->C14 != null) {
+			return Phalcon\Tag::linkTo("C14/show/".$this->C14->DHBC14Num, $this->C14->DHBC14Num);
 		}
 	}
 

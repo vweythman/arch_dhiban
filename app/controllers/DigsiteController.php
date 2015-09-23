@@ -11,11 +11,6 @@ class DigsiteController extends Controller
 
 	}
 
-	public function addAction()
-	{
-		
-	}
-
 	// show one artifact sample
 	public function showAction($HFID)
 	{
