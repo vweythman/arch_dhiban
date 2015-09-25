@@ -99,7 +99,7 @@
 		echo "<th>$value</th>";
 
 		foreach ($points as $i => $point) {
-			$clean = pointToDash($point);
+			$clean = pointToUnderscore($point);
 			$name  = "$value$clean";
 
 			if (count($data) > 0)
@@ -114,8 +114,14 @@
 		echo "</tr>";
 	}
 
+	// replace a space with a dash
+	function spaceToDash($ori)
+	{
+		return preg_replace("/[\s_]/", "-", $ori);
+	}
+
 	// replace a point with a dash
-	function pointToDash($ori)
+	function pointToUnderscore($ori)
 	{
 		return preg_replace("/\./", "_", $ori);
 	}

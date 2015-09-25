@@ -42,7 +42,7 @@ class FamiliesRemainsController extends Controller {
 					$dataset->meshid = "$LabLF".($mesh / 10); 
 				}
 
-				$cleanMesh = pointToDash($mesh);
+				$cleanMesh = pointToUnderscore($mesh);
 				
 				$dataset->Amaranthaceae            = $this->request->getPost("Amaranthaceae$cleanMesh");
 				$dataset->Apiaceae                 = $this->request->getPost("Apiaceae$cleanMesh");

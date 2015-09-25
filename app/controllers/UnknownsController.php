@@ -41,7 +41,7 @@ class UnknownsController extends Controller {
 					$dataset->meshid = "$LabLF".($mesh / 10); 
 				}
 
-				$cleanMesh = pointToDash($mesh);
+				$cleanMesh = pointToUnderscore($mesh);
 				$dataset->Clinker                      = $this->request->getPost("Clinker$cleanMesh");
 				$dataset->Indeterminate_rachis         = $this->request->getPost("Indeterminate_rachis$cleanMesh");
 				$dataset->Parenchyma_fragment          = $this->request->getPost("Parenchyma_fragment$cleanMesh");

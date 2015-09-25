@@ -40,7 +40,7 @@ class DomesticateFragsController extends Controller {
 					$dataset->meshid = "$LabLF".($mesh / 10); 
 				}
 
-				$cleanMesh = pointToDash($mesh);
+				$cleanMesh = pointToUnderscore($mesh);
 				
 				$dataset->Cereal_frag_CT                 = $this->request->getPost("Cereal_frag_CT$cleanMesh");
 				$dataset->Fabaceae_frags                 = $this->request->getPost("Fabaceae_frags$cleanMesh");

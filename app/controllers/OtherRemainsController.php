@@ -42,7 +42,7 @@ class OtherRemainsController extends Controller {
 					$dataset->meshid = "$LabLF".($mesh / 10); 
 				}
 
-				$cleanMesh = pointToDash($mesh);
+				$cleanMesh = pointToUnderscore($mesh);
 				
 				$dataset->Bone              = $this->request->getPost("Bone$cleanMesh");
 				$dataset->Carbonized_insect = $this->request->getPost("Carbonized_insect$cleanMesh");

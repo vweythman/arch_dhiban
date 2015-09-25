@@ -40,7 +40,7 @@ class DomesticatesController extends Controller {
 					$dataset->meshid = "$LabLF".($mesh / 10); 
 				}
 
-				$cleanMesh = pointToDash($mesh);
+				$cleanMesh = pointToUnderscore($mesh);
 
 				$dataset->Cicer_arietinum            = $this->request->getPost("Cicer_arietinum$cleanMesh");
 				$dataset->Coriandrum_sativum         = $this->request->getPost("Coriandrum_sativum$cleanMesh");

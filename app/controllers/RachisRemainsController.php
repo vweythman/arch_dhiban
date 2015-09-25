@@ -43,7 +43,7 @@ class RachisRemainsController extends Controller {
 					$dataset->meshid = "$LabLF".($mesh / 10); 
 				}
 
-				$cleanMesh = pointToDash($mesh);
+				$cleanMesh = pointToUnderscore($mesh);
 				
 				$dataset->Poaceae_culm                             = $this->request->getPost("Poaceae_culm$cleanMesh");
 				$dataset->Poaceae_root                             = $this->request->getPost("Poaceae_root$cleanMesh");

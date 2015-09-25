@@ -8,9 +8,7 @@ class ContextController extends Controller
 	// hardcoded for Dhiban currently
 	public function indexAction()
 	{
-		$samples  = Flots::find(
-			array('order' => 'Context ASC')
-		);
+		$samples  = Flots::find();
 		$contexts = array();
 		foreach ($samples as $sample) {
 			$context = $sample->Context == "" ? "None" : $sample->Context;

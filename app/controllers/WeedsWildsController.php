@@ -40,7 +40,7 @@ class WeedsWildsController extends Controller
 					$dataset->meshid = "$LabLF".($mesh / 10); 
 				}
 				
-				$cleanMesh = pointToDash($mesh);
+				$cleanMesh = pointToUnderscore($mesh);
 
 				$dataset->Adonis                       = $this->request->getPost("Adonis$cleanMesh");
 				$dataset->Agrostemma                   = $this->request->getPost("Agrostemma$cleanMesh");

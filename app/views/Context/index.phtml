@@ -2,14 +2,14 @@
 
 <div id='tabs'>
 	<ul>
-	<?php foreach ($contexts as $key => $val) { ?>
-		<li><a href="#tab<?php echo $key; ?>"><?php echo $key; ?></a></li>
+	<?php foreach ($contexts as $context => $val) { ?>
+		<li><a href="#tab<?php echo spaceToDash($context); ?>"><?php echo $context; ?></a></li>
 	<?php } ?>
 	</ul>
 
 	<?php foreach ($contexts as $context => $units) { ?>
-
-		<div id="tab<?php echo $context; ?>" class='tab'>
+		<div id="tab<?php echo spaceToDash($context); ?>" class='tab'>
+		
 			<h2>Context: <?php echo $context ?></h2>
 			
 			<?php foreach ($units as $unit => $samples) { ?>
@@ -35,6 +35,8 @@
 							<td><?php echo $sample->Bag; ?></td>
 							<td><?php echo $sample->Exc; ?></td>
 							<td><?php echo $sample->C14Link(); ?></td>
+							<td><?php echo $sample->Unit; ?></td>
+							<td><?php echo $sample->Context; ?></td>
 						</tr>
 					<?php } ?>
 
